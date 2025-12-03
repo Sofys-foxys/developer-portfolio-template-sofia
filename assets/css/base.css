@@ -1,0 +1,17 @@
+/* --------------------------------------------------------------------------
+   2. Base Overrides
+   -------------------------------------------------------------------------- */
+   body {
+	background-color: var(--bs-body-bg);
+	color: var(--bs-body-color);
+}
+
+.bg-dark {
+	background-color: var(--color-bg-alt) !important;
+}
+
+/* Section spacing */
+.py-lg-6 {
+	padding-top: 6rem !important;
+	padding-bottom: 6rem !important;
+}
