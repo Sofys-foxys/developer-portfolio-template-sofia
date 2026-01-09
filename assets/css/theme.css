@@ -54,7 +54,14 @@
 	--muted: #3f4744;
 	--border: rgba(18, 21, 20, 0.12);
   
+	/* Reduce neon presence in light mode */
+	--neon: #121514;
+	--neon-2: #121514;
+	--neon-soft: #3f4744;
+  
 	--bs-body-bg: var(--bg);
 	--bs-body-color: var(--text);
   }
+  
+
   

@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sofía — Portfolio Template</title>
-	<meta name="theme-color" content="#39FF14" />
-	<meta property="og:title" content="Sofía — Neon Portfolio Template" />
-	<meta property="og:description" content="Bootstrap + Tailwind accents + GSAP scroll storytelling." />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="./assets/images/og-image.svg" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml" />
-	<link rel="manifest" href="./assets/images/site.webmanifest" />
 
+    <meta name="theme-color" content="#39FF14" />
+    <meta property="og:title" content="Sofía — Neon Portfolio Template" />
+    <meta property="og:description" content="Bootstrap + Tailwind accents + GSAP scroll storytelling." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/images/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./assets/images/site.webmanifest" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,11 +31,14 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./assets/css/index.css" />
 
-    <!-- Basic metadata (you’ll complete later in Commit 10) -->
+    <!-- Basic metadata -->
     <meta name="description" content="Neon minimal portfolio template." />
   </head>
 
-  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="-1">
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+    <!-- ✅ Skip link (Plan 17) -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <div class="reading-progress" aria-hidden="true"></div>
 
     <!-- NAV (Bootstrap component) -->
@@ -74,9 +77,13 @@
       </div>
     </nav>
 
-    <main id="main">
+    <!-- ✅ role="main" improves landmark support -->
+    <main id="main" role="main">
       <!-- INTRODUCTION -->
-      <header id="introduction" class="hero-section min-vh-100 d-flex align-items-center position-relative overflow-hidden">
+      <header
+        id="introduction"
+        class="hero-section min-vh-100 d-flex align-items-center position-relative overflow-hidden"
+      >
         <div class="hero-bg tw-absolute tw-inset-0 tw-pointer-events-none"></div>
 
         <div class="container position-relative z-1">
@@ -89,7 +96,6 @@
                 <span class="typewriter" aria-label="Typewriter headline"></span>
               </h1>
 
-              <!-- ✅ ADD scroll-text here -->
               <p class="lead hero-subtitle gsap-reveal scroll-text">
                 Neon minimal portfolio template — Bootstrap structure + Tailwind accents + GSAP scroll storytelling.
               </p>
@@ -127,8 +133,6 @@
         <div class="container">
           <div class="d-flex align-items-end justify-content-between gap-3 mb-4">
             <h2 class="section-title gsap-reveal">Experience</h2>
-
-            <!-- ✅ ADD scroll-text here -->
             <p class="text-muted gsap-reveal mb-0 scroll-text">Selected roles & focus areas</p>
           </div>
 
@@ -139,7 +143,8 @@
                   <h3 class="h5">Creative Developer</h3>
                   <p class="text-muted mb-2">2023 — Present</p>
                   <p class="mb-0">
-                    Front-end systems, animation, and design engineering. Building fast, accessible interfaces with a strong signature.
+                    Front-end systems, animation, and design engineering. Building fast, accessible interfaces with a
+                    strong signature.
                   </p>
                 </div>
               </article>
@@ -151,7 +156,8 @@
                   <h3 class="h5">UI / Motion Designer</h3>
                   <p class="text-muted mb-2">2021 — 2023</p>
                   <p class="mb-0">
-                    Motion-driven storytelling, micro-interactions, and layouts designed for responsive behavior and clarity.
+                    Motion-driven storytelling, micro-interactions, and layouts designed for responsive behavior and
+                    clarity.
                   </p>
                 </div>
               </article>
@@ -169,7 +175,6 @@
           </div>
 
           <div class="row g-4">
-            <!-- Bootstrap Card -->
             <div class="col-md-6 col-lg-4">
               <article class="card project-card h-100 border-0 shadow-sm gsap-reveal">
                 <div class="ratio ratio-4x3 card-img-wrapper overflow-hidden">
@@ -195,7 +200,12 @@
             <div class="col-md-6 col-lg-4">
               <article class="card project-card h-100 border-0 shadow-sm gsap-reveal">
                 <div class="ratio ratio-4x3 card-img-wrapper overflow-hidden">
-                  <img src="https://placehold.co/800x600/png" class="card-img-top" alt="Project placeholder" loading="lazy" />
+                  <img
+                    src="https://placehold.co/800x600/png"
+                    class="card-img-top"
+                    alt="Project placeholder"
+                    loading="lazy"
+                  />
                 </div>
                 <div class="card-body">
                   <h3 class="card-title h5">Project Name</h3>
@@ -211,7 +221,12 @@
             <div class="col-md-6 col-lg-4">
               <article class="card project-card h-100 border-0 shadow-sm gsap-reveal">
                 <div class="ratio ratio-4x3 card-img-wrapper overflow-hidden">
-                  <img src="https://placehold.co/800x600/png" class="card-img-top" alt="Project placeholder" loading="lazy" />
+                  <img
+                    src="https://placehold.co/800x600/png"
+                    class="card-img-top"
+                    alt="Project placeholder"
+                    loading="lazy"
+                  />
                 </div>
                 <div class="card-body">
                   <h3 class="card-title h5">Project Name</h3>
@@ -237,9 +252,7 @@
 
           <div class="row g-3">
             <div class="col-6 col-md-3">
-              <div class="client-tile gsap-reveal">
-                <span>Client A</span>
-              </div>
+              <div class="client-tile gsap-reveal"><span>Client A</span></div>
             </div>
             <div class="col-6 col-md-3">
               <div class="client-tile gsap-reveal"><span>Client B</span></div>
@@ -289,13 +302,15 @@
             <div class="col-lg-6">
               <h2 class="section-title gsap-reveal">Contact Me</h2>
 
-              <!-- ✅ ADD scroll-text here -->
               <p class="text-muted gsap-reveal scroll-text">
                 Use this as a safe template: no innerHTML injection, form handling uses textContent.
               </p>
 
               <ul class="list-unstyled gsap-reveal">
-                <li><strong>Email:</strong> <a class="link-neon" href="mailto:hello@example.com">hello@example.com</a></li>
+                <li>
+                  <strong>Email:</strong>
+                  <a class="link-neon" href="mailto:hello@example.com">hello@example.com</a>
+                </li>
                 <li><strong>Expertise:</strong> Motion UI · Front-end · Systems</li>
               </ul>
             </div>
@@ -310,7 +325,14 @@
 
                   <div class="mb-3">
                     <label class="form-label" for="email">Email</label>
-                    <input class="form-control" id="email" name="email" type="email" autocomplete="email" required />
+                    <input
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                    />
                   </div>
 
                   <div class="mb-3">
@@ -328,9 +350,9 @@
 
           <footer class="pt-5 mt-5 border-top text-center text-muted small">
             <p class="mb-0">
-				© <span id="year"></span> Sofía — <span class="link-neon">neon signature</span> · Built with Bootstrap + Tailwind + GSAP.
-			  </p>
-			  
+              © <span id="year"></span> Sofía — <span class="link-neon">neon signature</span> · Built with Bootstrap +
+              Tailwind + GSAP.
+            </p>
           </footer>
         </div>
       </section>
