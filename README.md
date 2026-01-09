@@ -10,3 +10,9 @@ Tech: **Bootstrap 5 (CDN)** + **Tailwind (CLI, prefixed)** + **GSAP ScrollTrigge
    ```bash
    npm install
    npm run tw:watch
+
+## Elements of Bootstrap
+Navbar component (collapse + toggler)
+Cards for works/projects
+Grid system for responsive layout (container/row/col, spacing utilities)
+ScrollSpy via data-bs-spy="scroll"
