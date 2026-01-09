@@ -1,0 +1,11 @@
+{
+    "name": "Sofía Portfolio Template",
+    "short_name": "Sofía",
+    "icons": [
+      { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+    ],
+    "theme_color": "#39FF14",
+    "background_color": "#1A1C1B",
+    "display": "standalone"
+  }
+  
