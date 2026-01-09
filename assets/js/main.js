@@ -13,6 +13,34 @@ function setYear() {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Commit 21 — Apply ImageKit map (safe attribute assignment) */
+/* -------------------------------------------------------------------------- */
+function applyImageMap() {
+  const map = window.PORTFOLIO_IMAGES;
+  if (!map) return;
+
+  // HERO
+  const heroImg = document.getElementById("heroImage");
+  if (heroImg && map.hero?.src) {
+    heroImg.src = map.hero.src;
+    heroImg.alt = map.hero.alt || "Hero image";
+  }
+
+  // WORKS (3)
+  const works = Array.isArray(map.works) ? map.works : [];
+  const ids = ["workImage1", "workImage2", "workImage3"];
+
+  ids.forEach((id, index) => {
+    const img = document.getElementById(id);
+    const item = works[index];
+    if (img && item?.src) {
+      img.src = item.src;
+      img.alt = item.alt || `Project preview image ${index + 1}`;
+    }
+  });
+}
+
+/* -------------------------------------------------------------------------- */
 /* Theme toggle (dark/light) + label update */
 /* -------------------------------------------------------------------------- */
 function initThemeToggle() {
@@ -199,45 +227,38 @@ function initHeroReplay() {
 }
 
 function initPinnedStyleSection() {
-	if (prefersReducedMotion) return;
-  
-	const style = document.querySelector("#style");
-	if (!style) return;
-	if (window.matchMedia("(max-width: 991px)").matches) return;
+  if (prefersReducedMotion) return;
 
-  
-	const cards = style.querySelectorAll(".style-card");
-	const hasEnoughContent = cards.length >= 2; // ✅ mínimo 2 tarjetas para que tenga sentido
-  
-	// Si no hay contenido suficiente, NO pin: solo reveals normales
-	if (!hasEnoughContent) return;
-  
-	// Calcula cuánto debe durar el pin según el alto real del contenido
-	const content = style.querySelector(".section-content");
-	const contentHeight = content ? content.scrollHeight : 600;
-  
-	// pin extra: entre 400px y 900px según contenido
-	const extra = Math.min(900, Math.max(400, Math.round(contentHeight * 0.8)));
-  
-	const tl = gsap.timeline({
-	  scrollTrigger: {
-		trigger: style,
-		start: "top top",
-		end: () => `+=${extra}`,
-		pin: true,
-		scrub: 1,
-		anticipatePin: 1,
-		invalidateOnRefresh: true,
-		// pinSpacing true por defecto; lo dejamos para que no se solape con Contact
-	  }
-	});
-  
-	tl.from(".reveal-1", { opacity: 0, y: 30, duration: 0.5 })
-	  .from(".reveal-2", { opacity: 0, y: 30, duration: 0.5 })
-	  .from(".reveal-3", { opacity: 0, y: 30, duration: 0.5 });
-  }
-  
-  
+  const style = document.querySelector("#style");
+  if (!style) return;
+  if (window.matchMedia("(max-width: 991px)").matches) return;
+
+  const cards = style.querySelectorAll(".style-card");
+  const hasEnoughContent = cards.length >= 2;
+
+  if (!hasEnoughContent) return;
+
+  const content = style.querySelector(".section-content");
+  const contentHeight = content ? content.scrollHeight : 600;
+
+  const extra = Math.min(900, Math.max(400, Math.round(contentHeight * 0.8)));
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: style,
+      start: "top top",
+      end: () => `+=${extra}`,
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  tl.from(".reveal-1", { opacity: 0, y: 30, duration: 0.5 })
+    .from(".reveal-2", { opacity: 0, y: 30, duration: 0.5 })
+    .from(".reveal-3", { opacity: 0, y: 30, duration: 0.5 });
+}
 
 function initMagneticButtons() {
   if (prefersReducedMotion || !window.gsap) return;
@@ -285,6 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setYear();
+  applyImageMap();
   initThemeToggle();
   initContactForm();
   initReducedMotionCSSHelper();
@@ -298,7 +320,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionTitleScroll();
   initScrollTextReveal();
 
-  // Bootstrap scrollspy refresh (safe)
   if (window.bootstrap?.ScrollSpy) {
     bootstrap.ScrollSpy.getOrCreateInstance(document.body);
   }
