@@ -131,6 +131,27 @@ Footer	Square (1:1)
 ImageKit automatically optimizes image format, size, and quality.
 ---
 
+## 📁 Project Structure
+
+```txt
+portfolio-template/
+├── index.html          # Main page
+├── 404.html            # Custom error page
+├── README.md
+├── LICENSE
+├── .gitignore
+├── docs/
+│   ├── plan1.md        # AI planning documentation
+│   ├── plan2.md
+│   └── plan3.md
+├── assets/
+│   ├── css/
+│   │   └── index.css   # All styles (organized by sections)
+│   ├── js/
+│   │   ├── main.js     # Animations, interactions
+│   │   └── images.js  # Centralized image map (ImageKit)
+---
+
 ## Color System
 
 This template uses CSS Custom Properties (design tokens) for consistent theming.
@@ -280,25 +301,3 @@ A canvas for experimentation
 
 A base for future projects and extensions
 
----
-
-## 📁 Project Structure
-
-```txt
-portfolio-template/
-├── index.html          # Main page
-├── 404.html            # Custom error page
-├── README.md
-├── LICENSE
-├── .gitignore
-├── docs/
-│   ├── plan1.md        # AI planning documentation
-│   ├── plan2.md
-│   └── plan3.md
-├── assets/
-│   ├── css/
-│   │   └── index.css   # All styles (organized by sections)
-│   ├── js/
-│   │   ├── main.js     # Animations, interactions
-│   │   └── images.js  # Centralized image map (ImageKit)
----
