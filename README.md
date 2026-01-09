@@ -1,27 +1,280 @@
+# Sofía — Creative Developer Portfolio Template
+
 **Live:** <https://sofys-foxys.github.io/developer-portfolio-template-sofia/>
 
-# Sofía — Neon Portfolio Template
-Portfolio template for WEB ATELIER (UDIT).  
-Tech: **Bootstrap 5 (CDN)** + **Tailwind (CLI, prefixed `tw-`)** + **GSAP + ScrollTrigger + TextPlugin**.
+A modern, responsive **portfolio template for creative developers**, focused on **motion, UI systems, and neon visual identity**.  
+Built with semantic HTML, modern CSS, and GSAP animations, this template is designed to be **easy to customize**, **accessible**, and **deployment-ready** without any build step.
 
 ---
 
-## Screenshots / GIF
-Add your own images here:
-- `assets/images/screenshot-home.png`
-- `assets/images/screenshot-works.png`
-- (optional) `assets/images/demo.gif`
+## ✨ What is this project?
 
-> Tip: after you add screenshots, embed them here with markdown images.
+This project is a **single-page portfolio template** intended for:
+- Creative developers
+- Frontend designers
+- Motion-focused UI engineers
+- Students building a professional portfolio base
+
+It emphasizes:
+- Strong visual hierarchy
+- Motion with purpose
+- Clean, readable code
+- Progressive enhancement
+- Academic best practices (semantics, accessibility, documentation)
 
 ---
 
-## Setup (local)
-If you use VS Code:
-1) Open the folder
-2) Run Live Server (or any static server)
+## 🚀 Live Features
 
-Tailwind build tools:
-```bash
-npm install
-npm run tw:watch
+- ✅ Fully responsive (mobile → desktop)
+- 🌙 Dark / ☀️ Light mode toggle
+- 🎞 Scroll-driven animations (GSAP + ScrollTrigger)
+- ✍️ Typewriter hero text
+- 🖼 ImageKit CDN integration for optimized images
+- ♿ Accessibility foundations (reduced motion, alt text, keyboard navigation)
+- 🔗 Custom 404 page
+- 📦 No build tools required (pure CDN setup)
+
+---
+
+## 🛠 Tech Stack
+
+- **HTML5**
+  - Semantic structure (`header`, `main`, `section`, `article`, `footer`)
+- **CSS3**
+  - CSS Custom Properties (design tokens)
+  - Grid & Flexbox
+  - Fluid typography using `clamp()`
+- **Bootstrap 5**
+  - Layout utilities
+  - Responsive grid
+  - Components (custom-styled)
+- **GSAP**
+  - ScrollTrigger
+  - TextPlugin
+- **Vanilla JavaScript**
+- **ImageKit**
+  - Image CDN and optimization
+- **Google Fonts**
+
+All dependencies are loaded via CDN.  
+No Node.js, no bundlers, no build step.
+
+---
+
+## 📁 Project Structure
+
+```txt
+portfolio-template/
+├── index.html          # Main page
+├── 404.html            # Custom error page
+├── README.md
+├── LICENSE
+├── .gitignore
+├── docs/
+│   ├── plan1.md        # AI planning documentation
+│   ├── plan2.md
+│   └── plan3.md
+├── assets/
+│   ├── css/
+│   │   └── index.css   # All styles (organized by sections)
+│   ├── js/
+│   │   ├── main.js     # Animations, interactions
+│   │   └── images.js  # Centralized image map (ImageKit)
+
+
+
+**ImagekitIO**
+
+All images are defined in one single file:
+
+assets/js/images.js
+
+
+Example:
+
+const IMAGEKIT_URL = "https://ik.imagekit.io/your_imagekit_id";
+
+window.PORTFOLIO_IMAGES = {
+  hero: {
+    src: `${IMAGEKIT_URL}/portfolio/hero.jpg`,
+    alt: "Hero portrait image"
+  }
+};
+
+
+HTML files never contain real image URLs.
+JavaScript safely injects src and alt attributes at runtime.
+
+Folder structure in ImageKit (recommended)
+portfolio/
+├── hero.jpg
+├── work-1.jpg
+├── work-2.jpg
+├── work-3.jpg
+├── style-1.jpg (optional)
+├── clients/
+│   ├── client-1.jpg
+│   ├── client-2.jpg
+│   └── client-3.jpg
+└── footer.jpg
+
+
+You do not need to upload all images.
+Placeholders are supported.
+
+Changing or adding images
+
+Upload the image to ImageKit
+
+Copy its path
+
+Update assets/js/images.js
+
+Done — no HTML changes needed
+
+Image sizing guidelines
+Section	Recommended Ratio
+Hero	4:5 or portrait
+Works	4:3
+Clients	16:9
+Contact	4:3 or 1:1
+Footer	Square (1:1)
+
+ImageKit automatically optimizes size and format.
+
+**ColorSystem**
+
+This template uses CSS Custom Properties (design tokens) for consistent theming.
+
+Where colors live
+assets/css/index.css
+
+:root {
+  --bg: #0b0f0d;
+  --bg-2: #101513;
+  --text: #f5f7f6;
+  --muted: #9aa3a0;
+  --border: rgba(255, 255, 255, 0.12);
+  --neon: #39ff14;
+  --neon-2: #2edb10;
+}
+
+**Dark & Light Mode **
+Dark and light themes share the same token names
+
+Light mode overrides are scoped using:
+
+[data-theme="light"] { ... }
+
+
+This ensures:
+
+No duplicated styles
+
+Easy theme expansion
+
+Clean architecture
+
+Accessibility
+
+Body text contrast meets WCAG AA
+
+Neon color is used for accent only, not long text
+
+Muted text is never used for critical information
+
+**Typography System**
+
+The typography system is fluid, responsive, and scalable.
+
+Fonts used
+
+Bebas Neue → Display / Hero
+
+Bowlby One SC → Accent headings
+
+Inter → Body text
+
+No more than 3 font families, following best practices.
+
+Fluid typography with clamp()
+
+Defined in CSS variables:
+
+--step-0: clamp(1rem, 2.5vw, 1.125rem);
+--step-1: clamp(1.25rem, 3vw, 1.5rem);
+--step-2: clamp(1.75rem, 4vw, 2.25rem);
+--step-3: clamp(2.25rem, 5vw, 3rem);
+--step-4: clamp(3rem, 6vw, 4.5rem);
+
+
+Benefits:
+
+Smooth scaling across breakpoints
+
+No media-query typography hacks
+
+Works from mobile to large screens
+
+**Heading System**
+
+One <h1> (hero)
+
+Section titles use <h2>
+
+Card titles use <h3>
+
+This ensures semantic clarity and accessibility.
+
+**Cards System**
+How cards are structured
+
+Cards use a consistent pattern:
+
+<div class="card card-neon">
+  <h3>Title</h3>
+  <p>Description</p>
+</div>
+
+
+This pattern is reused across:
+
+Experience
+
+Works
+
+Style
+
+Clients
+
+Contact
+
+Adding more cards (example: Works)
+
+Duplicate one column block:
+
+<div class="col-md-4">
+  <article class="card card-neon project-card">
+    ...
+  </article>
+</div>
+
+
+Add a new image entry in images.js
+
+Update the ID (workImage4, etc.)
+
+Done
+
+The layout automatically adapts using Bootstrap Grid.
+
+Adding cards to other sections
+
+Experience / Style:
+Duplicate .style-card or .card-neon
+
+Clients:
+Duplicate .client-tile
+
+No JavaScript changes required.
