@@ -1,0 +1,24 @@
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    z-index: 9999;
+    transform-origin: left;
+    background: linear-gradient(to right, var(--neon), var(--neon-2));
+    opacity: 0.85;
+  }
+  
+  @supports (animation-timeline: scroll()) {
+    .reading-progress {
+      animation: progressBar linear;
+      animation-timeline: scroll();
+    }
+  
+    @keyframes progressBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+  }
+  
