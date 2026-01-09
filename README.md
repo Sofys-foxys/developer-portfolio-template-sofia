@@ -60,28 +60,6 @@ It emphasizes:
 All dependencies are loaded via CDN.  
 No Node.js, no bundlers, no build step.
 
----
-
-## 📁 Project Structure
-
-```txt
-portfolio-template/
-├── index.html          # Main page
-├── 404.html            # Custom error page
-├── README.md
-├── LICENSE
-├── .gitignore
-├── docs/
-│   ├── plan1.md        # AI planning documentation
-│   ├── plan2.md
-│   └── plan3.md
-├── assets/
-│   ├── css/
-│   │   └── index.css   # All styles (organized by sections)
-│   ├── js/
-│   │   ├── main.js     # Animations, interactions
-│   │   └── images.js  # Centralized image map (ImageKit)
----
 
 ## 🖼 Image Management — ImageKit
 
@@ -301,3 +279,26 @@ A starter portfolio template
 A canvas for experimentation
 
 A base for future projects and extensions
+
+---
+
+## 📁 Project Structure
+
+```txt
+portfolio-template/
+├── index.html          # Main page
+├── 404.html            # Custom error page
+├── README.md
+├── LICENSE
+├── .gitignore
+├── docs/
+│   ├── plan1.md        # AI planning documentation
+│   ├── plan2.md
+│   └── plan3.md
+├── assets/
+│   ├── css/
+│   │   └── index.css   # All styles (organized by sections)
+│   ├── js/
+│   │   ├── main.js     # Animations, interactions
+│   │   └── images.js  # Centralized image map (ImageKit)
+---
