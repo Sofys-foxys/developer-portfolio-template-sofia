@@ -327,23 +327,12 @@ html[data-theme="light"] #mainNav {
   .section-sticky { position: relative; top: auto; }
 }
 
-/* More image space */
-.tw-img-slot {
-  min-height: 520px;
-  border-radius: var(--radius-xl);
-  max-width: 100%;
-}
-
-@media (max-width: 992px) {
-  .tw-img-slot { min-height: 360px; }
-}
-
 /* Footer styling */
 .site-footer {
   border-top: 1px solid var(--border);
 }
 
-/* Commit 20 — reduce awkward extra whitespace feeling */
+/* Reduce awkward extra whitespace feeling */
 .section-content {
   min-height: auto;
 }
@@ -353,7 +342,6 @@ html[data-theme="light"] #mainNav {
   padding: clamp(3rem, 2.5rem + 2vw, 5rem) 0;
 }
 
-/* Ensure cards have breathing room */
 #style .style-card {
   margin-bottom: 1.25rem;
 }
@@ -363,9 +351,7 @@ html[data-theme="light"] #mainNav {
 ========================================================== */
 @media (max-width: 576px) {
   .hero-section { padding-top: 6.25rem; }
-
   .hero-kicker { margin-bottom: 0.9rem; }
-
   .hero-title { margin-bottom: 1.4rem; }
 
   .hero-cta {
@@ -376,14 +362,24 @@ html[data-theme="light"] #mainNav {
 }
 
 /* ==========================================================
-   Commit 21 — ImageKit images (hero + works)
+   Commit 21/22 — Unified image slots (ImageKit-ready)
+   Base system: use once, reuse everywhere
 ========================================================== */
 
+/* Base slot for hero + any “manual” image container */
 .tw-img-slot {
+  min-height: 520px;
+  border-radius: var(--radius-xl);
+  max-width: 100%;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
 }
 
+@media (max-width: 992px) {
+  .tw-img-slot { min-height: 360px; }
+}
+
+/* The image itself */
 .tw-img {
   width: 100%;
   height: 100%;
@@ -401,75 +397,71 @@ html[data-theme="light"] #mainNav {
 /* ==========================================================
    Style section images (cards)
 ========================================================== */
-
 .style-media {
-	border-radius: var(--radius-xl);
-	overflow: hidden;
-	border: 1px solid var(--border);
-	background: rgba(255, 255, 255, 0.03);
-	aspect-ratio: 16 / 9;
-  }
-  
-  [data-theme="light"] .style-media {
-	background: rgba(15, 20, 18, 0.04);
-  }
-  
-  .style-media .tw-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-  }
-  
-  /* ==========================================================
- Image slots for Clients + Contact + Footer
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  aspect-ratio: 16 / 9;
+}
+
+[data-theme="light"] .style-media {
+  background: rgba(15, 20, 18, 0.04);
+}
+
+.style-media .tw-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================
+   Image slots for Clients + Contact + Footer
 ========================================================== */
 
 /* Clients: 16:9 banners */
 .client-media {
-	border-radius: var(--radius-lg);
-	overflow: hidden;
-	border: 1px solid var(--border);
-	background: rgba(255,255,255,0.03);
-	aspect-ratio: 16 / 9;
-  }
-  
-  [data-theme="light"] .client-media {
-	background: rgba(15,20,18,0.04);
-  }
-  
-  .client-media .tw-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-  }
-  
-  /* Contact image card */
-  .contact-media {
-	border-radius: var(--radius-xl);
-	overflow: hidden;
-	border: 1px solid var(--border);
-	background: rgba(255,255,255,0.03);
-	min-height: 320px;
-  }
-  
-  .contact-media .tw-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-  }
-  
-  /* Footer mark */
-  .footer-mark {
-	border-radius: 999px;
-	border: 1px solid var(--border);
-	background: rgba(255,255,255,0.03);
-	object-fit: cover;
-  }
-  
-   /* Void Image */
-  .tw-img-slot {
-	background: rgba(255,255,255,0.03);
-  }
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  aspect-ratio: 16 / 9;
+}
+
+[data-theme="light"] .client-media {
+  background: rgba(15, 20, 18, 0.04);
+}
+
+.client-media .tw-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contact image card */
+.contact-media {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  min-height: 320px;
+}
+
+.contact-media .tw-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Footer mark image (small, circular) */
+.footer-mark {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  object-fit: cover;
+}
