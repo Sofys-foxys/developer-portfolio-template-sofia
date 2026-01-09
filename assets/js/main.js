@@ -199,24 +199,25 @@ function initHeroReplay() {
 }
 
 function initPinnedStyleSection() {
-  if (prefersReducedMotion || !window.gsap) return;
-
-  const tl = gsap.timeline({
-	scrollTrigger: {
-	  trigger: "#style",
-	  start: "top top",
-	  end: "+=110%",          
-	  pin: true,
-	  scrub: 1,
-	  anticipatePin: 1,
-	  invalidateOnRefresh: true
-	}
-  });
-
-  tl.from(".reveal-1", { opacity: 0, y: 40, duration: 0.6 })
-    .from(".reveal-2", { opacity: 0, y: 40, duration: 0.6 })
-    .from(".reveal-3", { opacity: 0, y: 40, duration: 0.6 });
-}
+	if (prefersReducedMotion) return;
+  
+	const tl = gsap.timeline({
+	  scrollTrigger: {
+		trigger: "#style",
+		start: "top top",
+		end: "+=110%",          // ✅ antes era demasiado (ej: 180% o 200%)
+		pin: true,
+		scrub: 1,
+		anticipatePin: 1,       // ✅ suaviza el pin
+		invalidateOnRefresh: true
+	  }
+	});
+  
+	tl.from(".reveal-1", { opacity: 0, y: 40, duration: 0.5 })
+	  .from(".reveal-2", { opacity: 0, y: 40, duration: 0.5 })
+	  .from(".reveal-3", { opacity: 0, y: 40, duration: 0.5 });
+  }
+  
 
 function initMagneticButtons() {
   if (prefersReducedMotion || !window.gsap) return;
