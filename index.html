@@ -27,7 +27,8 @@
   </head>
 
   <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="-1">
-	<div class="reading-progress" aria-hidden="true"></div>
+    <div class="reading-progress" aria-hidden="true"></div>
+
     <!-- NAV (Bootstrap component) -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top nav-glass" aria-label="Primary">
       <div class="container">
@@ -79,7 +80,8 @@
                 <span class="typewriter" aria-label="Typewriter headline"></span>
               </h1>
 
-              <p class="lead hero-subtitle gsap-reveal">
+              <!-- ✅ ADD scroll-text here -->
+              <p class="lead hero-subtitle gsap-reveal scroll-text">
                 Neon minimal portfolio template — Bootstrap structure + Tailwind accents + GSAP scroll storytelling.
               </p>
 
@@ -116,7 +118,9 @@
         <div class="container">
           <div class="d-flex align-items-end justify-content-between gap-3 mb-4">
             <h2 class="section-title gsap-reveal">Experience</h2>
-            <p class="text-muted gsap-reveal mb-0">Selected roles & focus areas</p>
+
+            <!-- ✅ ADD scroll-text here -->
+            <p class="text-muted gsap-reveal mb-0 scroll-text">Selected roles & focus areas</p>
           </div>
 
           <div class="row g-4">
@@ -275,7 +279,9 @@
           <div class="row g-5 align-items-start">
             <div class="col-lg-6">
               <h2 class="section-title gsap-reveal">Contact Me</h2>
-              <p class="text-muted gsap-reveal">
+
+              <!-- ✅ ADD scroll-text here -->
+              <p class="text-muted gsap-reveal scroll-text">
                 Use this as a safe template: no innerHTML injection, form handling uses textContent.
               </p>
 

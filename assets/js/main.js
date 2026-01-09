@@ -96,6 +96,41 @@ function initScrollReveals() {
   });
 }
 
+function initSectionTitleScroll() {
+	if (prefersReducedMotion) return;
+  
+	gsap.utils.toArray(".section-title").forEach((t) => {
+	  gsap.from(t, {
+		y: 100,
+		opacity: 0,
+		duration: 1,
+		scrollTrigger: {
+		  trigger: t,
+		  start: "top 80%",
+		  end: "top 20%",
+		  toggleActions: "play none none reverse"
+		}
+	  });
+	});
+  }
+  
+  function initScrollTextReveal() {
+	if (prefersReducedMotion) return;
+  
+	gsap.utils.toArray(".scroll-text").forEach((text) => {
+	  gsap.from(text, {
+		y: 50,
+		opacity: 0,
+		duration: 1,
+		scrollTrigger: {
+		  trigger: text,
+		  start: "top 85%",
+		  toggleActions: "play none none reverse"
+		}
+	  });
+	});
+  }
+  
 function initHeroParallax() {
   if (prefersReducedMotion) return;
 
@@ -180,6 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroParallax();
   initPinnedStyleSection();
   initMagneticButtons();
+
+  initSectionTitleScroll();
+  initScrollTextReveal();
+
 
   // Bootstrap scrollspy refresh (safe)
   if (window.bootstrap?.ScrollSpy) {
