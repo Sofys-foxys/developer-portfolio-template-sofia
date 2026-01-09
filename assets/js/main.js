@@ -201,22 +201,42 @@ function initHeroReplay() {
 function initPinnedStyleSection() {
 	if (prefersReducedMotion) return;
   
+	const style = document.querySelector("#style");
+	if (!style) return;
+	if (window.matchMedia("(max-width: 991px)").matches) return;
+
+  
+	const cards = style.querySelectorAll(".style-card");
+	const hasEnoughContent = cards.length >= 2; // ✅ mínimo 2 tarjetas para que tenga sentido
+  
+	// Si no hay contenido suficiente, NO pin: solo reveals normales
+	if (!hasEnoughContent) return;
+  
+	// Calcula cuánto debe durar el pin según el alto real del contenido
+	const content = style.querySelector(".section-content");
+	const contentHeight = content ? content.scrollHeight : 600;
+  
+	// pin extra: entre 400px y 900px según contenido
+	const extra = Math.min(900, Math.max(400, Math.round(contentHeight * 0.8)));
+  
 	const tl = gsap.timeline({
 	  scrollTrigger: {
-		trigger: "#style",
+		trigger: style,
 		start: "top top",
-		end: "+=110%",          // ✅ antes era demasiado (ej: 180% o 200%)
+		end: () => `+=${extra}`,
 		pin: true,
 		scrub: 1,
-		anticipatePin: 1,       // ✅ suaviza el pin
-		invalidateOnRefresh: true
+		anticipatePin: 1,
+		invalidateOnRefresh: true,
+		// pinSpacing true por defecto; lo dejamos para que no se solape con Contact
 	  }
 	});
   
-	tl.from(".reveal-1", { opacity: 0, y: 40, duration: 0.5 })
-	  .from(".reveal-2", { opacity: 0, y: 40, duration: 0.5 })
-	  .from(".reveal-3", { opacity: 0, y: 40, duration: 0.5 });
+	tl.from(".reveal-1", { opacity: 0, y: 30, duration: 0.5 })
+	  .from(".reveal-2", { opacity: 0, y: 30, duration: 0.5 })
+	  .from(".reveal-3", { opacity: 0, y: 30, duration: 0.5 });
   }
+  
   
 
 function initMagneticButtons() {

@@ -300,3 +300,18 @@ body {
 	border-top: 1px solid var(--border);
   }
   
+  /* Make pinned sections feel full and smooth */
+.section-content {
+	min-height: 60vh; /* ✅ evita columna vacía gigante */
+  }
+  
+  /* Style section spacing tuned */
+  #style.section-pad {
+	padding: clamp(3rem, 2.5rem + 2vw, 5rem) 0;
+  }
+  
+  /* Ensure cards have breathing room (makes pin feel purposeful) */
+  #style .style-card {
+	margin-bottom: 1.25rem;
+  }
+  
