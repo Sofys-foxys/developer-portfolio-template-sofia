@@ -1,18 +1,27 @@
-# Sofía — Neon Portfolio Template
 **Live:** <https://sofys-foxys.github.io/developer-portfolio-template-sofia/>
 
-Neon minimal portfolio template built for WEB ATELIER (UDIT).
-Tech: **Bootstrap 5 (CDN)** + **Tailwind (CLI, prefixed)** + **GSAP ScrollTrigger**.
+# Sofía — Neon Portfolio Template
+Portfolio template for WEB ATELIER (UDIT).  
+Tech: **Bootstrap 5 (CDN)** + **Tailwind (CLI, prefixed `tw-`)** + **GSAP + ScrollTrigger + TextPlugin**.
+
+---
+
+## Screenshots / GIF
+Add your own images here:
+- `assets/images/screenshot-home.png`
+- `assets/images/screenshot-works.png`
+- (optional) `assets/images/demo.gif`
+
+> Tip: after you add screenshots, embed them here with markdown images.
+
+---
 
 ## Setup (local)
-1. Open `index.html` with Live Server (VS Code), OR any static server.
-2. Install Tailwind tooling:
-   ```bash
-   npm install
-   npm run tw:watch
+If you use VS Code:
+1) Open the folder
+2) Run Live Server (or any static server)
 
-## Elements of Bootstrap
-Navbar component (collapse + toggler)
-Cards for works/projects
-Grid system for responsive layout (container/row/col, spacing utilities)
-ScrollSpy via data-bs-spy="scroll"
+Tailwind build tools:
+```bash
+npm install
+npm run tw:watch
