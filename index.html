@@ -130,7 +130,7 @@
 
             <div class="col-lg-6">
               <!-- HERO IMAGE (ImageKit injected by JS) -->
-              <div class="tw-img-slot">
+              <div class="tw-img-slot" role="img" aria-label="Hero portrait image">
                 <img
                   id="heroImage"
                   class="tw-img"
@@ -212,7 +212,7 @@
                 <article
                   class="card card-neon project-card overflow-hidden gsap-reveal"
                 >
-                  <div class="ratio ratio-4x3">
+                  <div class="ratio ratio-4x3" role="img" aria-label="Work image 1">
                     <img
                       id="workImage1"
                       class="tw-img"
@@ -243,7 +243,7 @@
                 <article
                   class="card card-neon project-card overflow-hidden gsap-reveal"
                 >
-                  <div class="ratio ratio-4x3">
+                  <div class="ratio ratio-4x3" role="img" aria-label="Work image 2">
                     <img
                       id="workImage2"
                       class="tw-img"
@@ -273,7 +273,7 @@
                 <article
                   class="card card-neon project-card overflow-hidden gsap-reveal"
                 >
-                  <div class="ratio ratio-4x3">
+                  <div class="ratio ratio-4x3" role="img" aria-label="Work image 3">
                     <img
                       id="workImage3"
                       class="tw-img"
@@ -306,241 +306,317 @@
       <!-- CLIENTS -->
       <section id="clients" class="section-pad">
         <div class="container section-grid">
-			<div class="section-sticky">
-			  <h2
-				class="section-title"
-				style="font-family: var(--font-heading); font-size: var(--step-3)"
-			  >
-				Clients
-			  </h2>
-			  <p class="text-muted scroll-text mt-2">
-				Neon stays visible for identity + contrast.
-			  </p>
-			</div>
-		
-			<div class="section-content">
-			  <div class="row g-4">
-				<!-- Client 1 -->
-				<div class="col-md-4">
-				  <div class="client-tile gsap-reveal">
-					<div class="client-media">
-					  <img
-						id="clientImage1"
-						class="tw-img"
-						src=""
-						alt=""
-						width="1200"
-						height="675"
-						loading="lazy"
-						decoding="async"
-					  />
-					</div>
-		
-					<p class="client-name mb-1 mt-3">Client One</p>
-					<p class="text-muted mb-0">Brand / UI</p>
-				  </div>
-				</div>
-		
-				<!-- Client 2 -->
-				<div class="col-md-4">
-				  <div class="client-tile gsap-reveal">
-					<div class="client-media">
-					  <img
-						id="clientImage2"
-						class="tw-img"
-						src=""
-						alt=""
-						width="1200"
-						height="675"
-						loading="lazy"
-						decoding="async"
-					  />
-					</div>
-		
-					<p class="client-name mb-1 mt-3">Client Two</p>
-					<p class="text-muted mb-0">Motion / Web</p>
-				  </div>
-				</div>
-		
-				<!-- Client 3 -->
-				<div class="col-md-4">
-				  <div class="client-tile gsap-reveal">
-					<div class="client-media">
-					  <img
-						id="clientImage3"
-						class="tw-img"
-						src=""
-						alt=""
-						width="1200"
-						height="675"
-						loading="lazy"
-						decoding="async"
-					  />
-					</div>
-		
-					<p class="client-name mb-1 mt-3">Client Three</p>
-					<p class="text-muted mb-0">Systems</p>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </div>
+          <div class="section-sticky">
+            <h2
+              class="section-title"
+              style="font-family: var(--font-heading); font-size: var(--step-3)"
+            >
+              Clients
+            </h2>
+            <p class="text-muted scroll-text mt-2">
+              Neon stays visible for identity + contrast.
+            </p>
+          </div>
+
+          <div class="section-content">
+            <div class="row g-4">
+              <!-- Client 1 -->
+              <div class="col-md-4">
+                <div class="client-tile gsap-reveal">
+                  <div class="client-media" role="img" aria-label="Client One image">
+                    <img
+                      id="clientImage1"
+                      class="tw-img"
+                      src=""
+                      alt=""
+                      width="1200"
+                      height="675"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+
+                  <p class="client-name mb-1 mt-3">Client One</p>
+                  <p class="text-muted mb-0">Brand / UI</p>
+                </div>
+              </div>
+
+              <!-- Client 2 -->
+              <div class="col-md-4">
+                <div class="client-tile gsap-reveal">
+                  <div class="client-media" role="img" aria-label="Client Two image">
+                    <img
+                      id="clientImage2"
+                      class="tw-img"
+                      src=""
+                      alt=""
+                      width="1200"
+                      height="675"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+
+                  <p class="client-name mb-1 mt-3">Client Two</p>
+                  <p class="text-muted mb-0">Motion / Web</p>
+                </div>
+              </div>
+
+              <!-- Client 3 -->
+              <div class="col-md-4">
+                <div class="client-tile gsap-reveal">
+                  <div class="client-media" role="img" aria-label="Client Three image">
+                    <img
+                      id="clientImage3"
+                      class="tw-img"
+                      src=""
+                      alt=""
+                      width="1200"
+                      height="675"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+
+                  <p class="client-name mb-1 mt-3">Client Three</p>
+                  <p class="text-muted mb-0">Systems</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STYLE (ADD IMAGES HERE) -->
+      <section id="style" class="section-pad bg-alt">
+        <div class="container section-grid">
+          <div class="section-sticky">
+            <h2
+              class="section-title"
+              style="font-family: var(--font-heading); font-size: var(--step-3)"
+            >
+              Style
+            </h2>
+            <p class="text-muted scroll-text mt-2">
+              Pinned storytelling with ScrollTrigger.
+            </p>
+          </div>
+
+          <div class="section-content">
+            <div class="style-card reveal-1 gsap-reveal mb-4">
+              <div class="style-media mb-3" role="img" aria-label="Style image 1">
+                <img
+                  id="styleImage1"
+                  class="tw-img"
+                  src=""
+                  alt=""
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>Systems-first</h3>
+              <p class="mb-0">
+                Design tokens, repeatable patterns, and clarity across screens.
+              </p>
+            </div>
+
+            <div class="style-card reveal-2 gsap-reveal mb-4">
+              <div class="style-media mb-3" role="img" aria-label="Style image 2">
+                <img
+                  id="styleImage2"
+                  class="tw-img"
+                  src=""
+                  alt=""
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>Motion with purpose</h3>
+              <p class="mb-0">
+                Animation supports hierarchy and flow, never noise.
+              </p>
+            </div>
+
+            <div class="style-card reveal-3 gsap-reveal">
+              <div class="style-media mb-3" role="img" aria-label="Style image 3">
+                <img
+                  id="styleImage3"
+                  class="tw-img"
+                  src=""
+                  alt=""
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>Accessible by default</h3>
+              <p class="mb-0">
+                Reduced motion support, keyboard-first, readable contrast.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- CONTACT -->
       <section id="contact" class="section-pad">
-		<div class="container section-grid">
-			<div class="section-sticky">
-			  <h2
-				class="section-title"
-				style="font-family: var(--font-heading); font-size: var(--step-3)"
-			  >
-				Contact Me
-			  </h2>
-			  <p class="text-muted scroll-text mt-2">
-				Demo form (safe) + email link.
-			  </p>
-			</div>
-		
-			<div class="section-content">
-			  <div class="row g-4 align-items-stretch">
-				<!-- Contact image (optional) -->
-				<div class="col-lg-5">
-				  <div class="contact-media card card-neon gsap-reveal overflow-hidden p-0">
-					<img
-					  id="contactImage"
-					  class="tw-img"
-					  src=""
-					  alt=""
-					  width="1200"
-					  height="900"
-					  loading="lazy"
-					  decoding="async"
-					/>
-				  </div>
-				  <p class="text-muted mt-3 mb-0">
-					Optional contact visual. Replace via <code>assets/js/images.js</code>.
-				  </p>
-				</div>
-		
-				<!-- Contact form -->
-				<div class="col-lg-7">
-				  <div class="card card-neon p-4 p-md-5 gsap-reveal">
-					<form id="contactForm" novalidate>
-					  <div class="row g-3">
-						<div class="col-md-6">
-						  <label class="form-label" for="name">Name</label>
-						  <input
-							class="form-control"
-							id="name"
-							name="name"
-							type="text"
-							required
-						  />
-						</div>
-		
-						<div class="col-md-6">
-						  <label class="form-label" for="email">Email</label>
-						  <input
-							class="form-control"
-							id="email"
-							name="email"
-							type="email"
-							required
-						  />
-						</div>
-		
-						<div class="col-12">
-						  <label class="form-label" for="message">Message</label>
-						  <textarea
-							class="form-control"
-							id="message"
-							name="message"
-							rows="5"
-							required
-						  ></textarea>
-						</div>
-		
-						<div class="col-12 d-flex gap-3 align-items-center">
-						  <button class="btn btn-neon magnetic-btn" type="submit">
-							Send
-						  </button>
-						  <p
-							id="formStatus"
-							class="m-0 text-muted"
-							aria-live="polite"
-						  ></p>
-						</div>
-					  </div>
-					</form>
-		
-					<p class="mt-4 mb-0 text-muted">
-					  Prefer email?
-					  <a class="link-neon" href="mailto:hello@yourmail.com">
-						hello@yourmail.com
-					  </a>
-					</p>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </div>
+        <div class="container section-grid">
+          <div class="section-sticky">
+            <h2
+              class="section-title"
+              style="font-family: var(--font-heading); font-size: var(--step-3)"
+            >
+              Contact Me
+            </h2>
+            <p class="text-muted scroll-text mt-2">
+              Demo form (safe) + email link.
+            </p>
+          </div>
+
+          <div class="section-content">
+            <div class="row g-4 align-items-stretch">
+              <!-- Contact image (optional) -->
+              <div class="col-lg-5">
+                <div class="contact-media card card-neon gsap-reveal overflow-hidden p-0" role="img" aria-label="Contact image">
+                  <img
+                    id="contactImage"
+                    class="tw-img"
+                    src=""
+                    alt=""
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                  Optional contact visual. Replace via <code>assets/js/images.js</code>.
+                </p>
+              </div>
+
+              <!-- Contact form -->
+              <div class="col-lg-7">
+                <div class="card card-neon p-4 p-md-5 gsap-reveal">
+                  <form id="contactForm" novalidate>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label" for="name">Name</label>
+                        <input
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          type="text"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label" for="email">Email</label>
+                        <input
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea
+                          class="form-control"
+                          id="message"
+                          name="message"
+                          rows="5"
+                          required
+                        ></textarea>
+                      </div>
+
+                      <div class="col-12 d-flex gap-3 align-items-center">
+                        <button class="btn btn-neon magnetic-btn" type="submit">
+                          Send
+                        </button>
+                        <p
+                          id="formStatus"
+                          class="m-0 text-muted"
+                          aria-live="polite"
+                        ></p>
+                      </div>
+                    </div>
+                  </form>
+
+                  <p class="mt-4 mb-0 text-muted">
+                    Prefer email?
+                    <a class="link-neon" href="mailto:hello@yourmail.com">
+                      hello@yourmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- FOOTER -->
       <footer class="section-pad bg-alt site-footer">
         <div class="container">
-			<div class="card border-0 card-neon p-4 p-md-5 gsap-reveal">
-			  <div class="row g-4 align-items-start">
-				<div class="col-md-5">
-				  <img
-					id="footerImage"
-					class="footer-mark mb-3"
-					src=""
-					alt=""
-					width="96"
-					height="96"
-					loading="lazy"
-					decoding="async"
-				  />
-		
-				  <h3 class="mb-2">Sofía</h3>
-				  <p class="text-muted mb-0">
-					Creative developer focused on motion, UI systems, and clean neon
-					identity.
-				  </p>
-				</div>
-		
-				<div class="col-md-4">
-				  <p class="kicker mb-2">Quick links</p>
-				  <ul class="list-unstyled m-0">
-					<li><a class="link-neon" href="#introduction">Introduction</a></li>
-					<li><a class="link-neon" href="#experience">Experience</a></li>
-					<li><a class="link-neon" href="#works">Previous Works</a></li>
-					<li><a class="link-neon" href="#clients">Clients</a></li>
-					<li><a class="link-neon" href="#style">Style</a></li>
-					<li><a class="link-neon" href="#contact">Contact Me</a></li>
-				  </ul>
-				</div>
-		
-				<div class="col-md-3">
-				  <p class="kicker mb-2">Contact</p>
-				  <p class="mb-1">
-					<a class="link-neon" href="mailto:hello@yourmail.com">
-					  hello@yourmail.com
-					</a>
-				  </p>
-				  <p class="text-muted mb-0">Madrid · Remote</p>
-				</div>
-			  </div>
-		
-			  <hr class="my-4" style="opacity: 0.12" />
-			  <p class="text-muted m-0">
-				© <span id="year"></span> Sofía · Built with Bootstrap, Tailwind and
-				GSAP.
-			  </p>
-			</div>
-		  </div>
+          <div class="card border-0 card-neon p-4 p-md-5 gsap-reveal">
+            <div class="row g-4 align-items-start">
+              <div class="col-md-5">
+                <img
+                  id="footerImage"
+                  class="footer-mark mb-3"
+                  src=""
+                  alt=""
+                  width="96"
+                  height="96"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <h3 class="mb-2">Sofía</h3>
+                <p class="text-muted mb-0">
+                  Creative developer focused on motion, UI systems, and clean neon
+                  identity.
+                </p>
+              </div>
+
+              <div class="col-md-4">
+                <p class="kicker mb-2">Quick links</p>
+                <ul class="list-unstyled m-0">
+                  <li><a class="link-neon" href="#introduction">Introduction</a></li>
+                  <li><a class="link-neon" href="#experience">Experience</a></li>
+                  <li><a class="link-neon" href="#works">Previous Works</a></li>
+                  <li><a class="link-neon" href="#clients">Clients</a></li>
+                  <li><a class="link-neon" href="#style">Style</a></li>
+                  <li><a class="link-neon" href="#contact">Contact Me</a></li>
+                </ul>
+              </div>
+
+              <div class="col-md-3">
+                <p class="kicker mb-2">Contact</p>
+                <p class="mb-1">
+                  <a class="link-neon" href="mailto:hello@yourmail.com">
+                    hello@yourmail.com
+                  </a>
+                </p>
+                <p class="text-muted mb-0">Madrid · Remote</p>
+              </div>
+            </div>
+
+            <hr class="my-4" style="opacity: 0.12" />
+            <p class="text-muted m-0">
+              © <span id="year"></span> Sofía · Built with Bootstrap, Tailwind and
+              GSAP.
+            </p>
+          </div>
+        </div>
       </footer>
     </main>
 
