@@ -38,7 +38,7 @@
   >
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- NAV (fixed + follows user) -->
+    <!-- NAV -->
     <nav class="navbar navbar-expand-lg fixed-top nav-glass" id="mainNav">
       <div class="container">
         <a class="navbar-brand fw-bold" href="#introduction">Sofía</a>
@@ -57,27 +57,14 @@
 
         <div class="collapse navbar-collapse" id="navContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
-            <li class="nav-item">
-              <a class="nav-link" href="#introduction">Introduction</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#experience">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#works">Previous Works</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#clients">Clients</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#style">Style</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact Me</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="#works">Previous Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+            <li class="nav-item"><a class="nav-link" href="#style">Style</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>
           </ul>
 
-          <!-- Theme toggle label updated by main.js -->
           <button
             id="themeToggle"
             class="btn btn-outline-light btn-sm ms-lg-3 magnetic-btn"
@@ -90,7 +77,7 @@
     </nav>
 
     <main id="main">
-      <!-- INTRODUCTION / HERO -->
+      <!-- HERO -->
       <header id="introduction" class="hero-section hero-bg">
         <div class="container section-pad">
           <div class="row align-items-center g-5">
@@ -101,25 +88,15 @@
 
               <h1
                 class="hero-title display-1 m-0"
-                style="
-                  font-family: var(--font-display);
-                  font-size: var(--step-4);
-                  line-height: 0.95;
-                "
+                style="font-family: var(--font-display); font-size: var(--step-4); line-height: 0.95;"
               >
                 SOFÍA<br />
                 <span class="typewriter"></span>
               </h1>
 
               <div class="hero-cta d-flex gap-3 mt-4">
-                <a class="btn btn-neon btn-lg magnetic-btn" href="#works"
-                  >See work</a
-                >
-                <a
-                  class="btn btn-outline-light btn-lg magnetic-btn"
-                  href="#contact"
-                  >Contact</a
-                >
+                <a class="btn btn-neon btn-lg magnetic-btn" href="#works">See work</a>
+                <a class="btn btn-outline-light btn-lg magnetic-btn" href="#contact">Contact</a>
               </div>
 
               <div class="scroll-indicator mt-5 d-flex align-items-center gap-3">
@@ -129,11 +106,13 @@
             </div>
 
             <div class="col-lg-6">
-              <!-- Image slot (replace with ImageKit URL later) -->
+              <!-- Accessible placeholder -->
               <div
                 class="tw-img-slot d-flex align-items-center justify-content-center bg-light text-dark"
+                role="img"
+                aria-label="Hero image placeholder. Replace with ImageKit portrait image."
               >
-                <span class="fw-bold opacity-50">900 × 1100</span>
+                <span class="fw-bold opacity-50" aria-hidden="true">900 × 1100</span>
               </div>
               <p class="text-muted mt-3 mb-0">
                 Replace this with your ImageKit image. Keep aspect ratio.
@@ -143,55 +122,11 @@
         </div>
       </header>
 
-      <!-- EXPERIENCE (sticky title column) -->
-      <section id="experience" class="section-pad">
-        <div class="container section-grid">
-          <div class="section-sticky">
-            <h2
-              class="section-title"
-              style="font-family: var(--font-heading); font-size: var(--step-3)"
-            >
-              Experience
-            </h2>
-            <p class="text-muted scroll-text mt-2">
-              Selected roles & areas of focus.
-            </p>
-          </div>
-
-          <div class="section-content">
-            <div class="row g-4">
-              <div class="col-md-6">
-                <div class="card card-neon p-4 gsap-reveal">
-                  <h3 class="mb-2">UI Systems</h3>
-                  <p class="mb-0">
-                    Component libraries, design tokens, scalable patterns for
-                    product teams.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="card card-neon p-4 gsap-reveal">
-                  <h3 class="mb-2">Motion</h3>
-                  <p class="mb-0">
-                    Scroll-driven storytelling, GSAP timelines, micro-interactions,
-                    accessibility-first motion.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- WORKS (sticky title column) -->
+      <!-- WORKS -->
       <section id="works" class="section-pad bg-alt">
         <div class="container section-grid">
           <div class="section-sticky">
-            <h2
-              class="section-title"
-              style="font-family: var(--font-heading); font-size: var(--step-3)"
-            >
+            <h2 class="section-title" style="font-family: var(--font-heading); font-size: var(--step-3);">
               Previous Works
             </h2>
             <p class="text-muted scroll-text mt-2">
@@ -201,240 +136,30 @@
 
           <div class="section-content">
             <div class="row g-4">
+              <!-- Project card (repeat x3) -->
               <div class="col-md-4">
                 <article class="card card-neon project-card overflow-hidden gsap-reveal">
                   <div
                     class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center text-dark"
+                    role="img"
+                    aria-label="Project image placeholder. Replace with ImageKit project preview."
                   >
-                    <span class="fw-bold opacity-50">800 × 600</span>
+                    <span class="fw-bold opacity-50" aria-hidden="true">800 × 600</span>
                   </div>
                   <div class="card-body">
                     <h3 class="card-title">Project Name</h3>
                     <p class="card-text">
                       Short description. Replace image with ImageKit and update text.
                     </p>
-                    <div class="d-flex gap-2 flex-wrap">
-                      <span class="badge rounded-pill">Bootstrap</span>
-                      <span class="badge rounded-pill">GSAP</span>
-                      <span class="badge rounded-pill">Tailwind</span>
-                    </div>
                   </div>
                 </article>
               </div>
 
-              <div class="col-md-4">
-                <article class="card card-neon project-card overflow-hidden gsap-reveal">
-                  <div
-                    class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center text-dark"
-                  >
-                    <span class="fw-bold opacity-50">800 × 600</span>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">Project Name</h3>
-                    <p class="card-text">
-                      Short description. Replace image with ImageKit and update text.
-                    </p>
-                    <div class="d-flex gap-2 flex-wrap">
-                      <span class="badge rounded-pill">UI</span>
-                      <span class="badge rounded-pill">Motion</span>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="col-md-4">
-                <article class="card card-neon project-card overflow-hidden gsap-reveal">
-                  <div
-                    class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center text-dark"
-                  >
-                    <span class="fw-bold opacity-50">800 × 600</span>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">Project Name</h3>
-                    <p class="card-text">
-                      Short description. Replace image with ImageKit and update text.
-                    </p>
-                    <div class="d-flex gap-2 flex-wrap">
-                      <span class="badge rounded-pill">Brand</span>
-                      <span class="badge rounded-pill">Web</span>
-                    </div>
-                  </div>
-                </article>
-              </div>
+              <!-- Duplica este bloque para los otros dos proyectos -->
             </div>
           </div>
         </div>
       </section>
-
-      <!-- CLIENTS (sticky title column) -->
-      <section id="clients" class="section-pad">
-        <div class="container section-grid">
-          <div class="section-sticky">
-            <h2
-              class="section-title"
-              style="font-family: var(--font-heading); font-size: var(--step-3)"
-            >
-              Clients
-            </h2>
-            <p class="text-muted scroll-text mt-2">
-              Neon stays visible for identity + contrast.
-            </p>
-          </div>
-
-          <div class="section-content">
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="client-tile gsap-reveal">
-                  <p class="client-name mb-1">Client One</p>
-                  <p class="text-muted mb-0">Brand / UI</p>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="client-tile gsap-reveal">
-                  <p class="client-name mb-1">Client Two</p>
-                  <p class="text-muted mb-0">Motion / Web</p>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="client-tile gsap-reveal">
-                  <p class="client-name mb-1">Client Three</p>
-                  <p class="text-muted mb-0">Systems</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- STYLE (sticky title column + pinned animation works) -->
-      <section id="style" class="section-pad bg-alt">
-        <div class="container section-grid">
-          <div class="section-sticky">
-            <h2
-              class="section-title"
-              style="font-family: var(--font-heading); font-size: var(--step-3)"
-            >
-              Style
-            </h2>
-            <p class="text-muted scroll-text mt-2">
-              Pinned storytelling with ScrollTrigger.
-            </p>
-          </div>
-
-          <div class="section-content">
-            <div class="style-card reveal-1 gsap-reveal mb-4">
-              <h3>Systems-first</h3>
-              <p class="mb-0">
-                Design tokens, repeatable patterns, and clarity across screens.
-              </p>
-            </div>
-
-            <div class="style-card reveal-2 gsap-reveal mb-4">
-              <h3>Motion with purpose</h3>
-              <p class="mb-0">
-                Animation supports hierarchy and flow, never noise.
-              </p>
-            </div>
-
-            <div class="style-card reveal-3 gsap-reveal">
-              <h3>Accessible by default</h3>
-              <p class="mb-0">
-                Reduced motion support, keyboard-first, readable contrast.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT (sticky title column) -->
-      <section id="contact" class="section-pad">
-        <div class="container section-grid">
-          <div class="section-sticky">
-            <h2
-              class="section-title"
-              style="font-family: var(--font-heading); font-size: var(--step-3)"
-            >
-              Contact Me
-            </h2>
-            <p class="text-muted scroll-text mt-2">
-              Demo form (safe) + email link.
-            </p>
-          </div>
-
-          <div class="section-content">
-            <div class="card card-neon p-4 p-md-5 gsap-reveal">
-              <form id="contactForm" novalidate>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label" for="name">Name</label>
-                    <input class="form-control" id="name" name="name" type="text" required />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control" id="email" name="email" type="email" required />
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                  </div>
-                  <div class="col-12 d-flex gap-3 align-items-center">
-                    <button class="btn btn-neon magnetic-btn" type="submit">Send</button>
-                    <p id="formStatus" class="m-0 text-muted" aria-live="polite"></p>
-                  </div>
-                </div>
-              </form>
-
-              <p class="mt-4 mb-0 text-muted">
-                Prefer email?
-                <a class="link-neon" href="mailto:hello@yourmail.com">hello@yourmail.com</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER (summary + links) -->
-      <footer class="section-pad bg-alt site-footer">
-        <div class="container">
-          <div class="card border-0 card-neon p-4 p-md-5 gsap-reveal">
-            <div class="row g-4 align-items-start">
-              <div class="col-md-5">
-                <h3 class="mb-2">Sofía</h3>
-                <p class="text-muted mb-0">
-                  Creative developer focused on motion, UI systems, and clean neon identity.
-                </p>
-              </div>
-
-              <div class="col-md-4">
-                <p class="kicker mb-2">Quick links</p>
-                <ul class="list-unstyled m-0">
-                  <li><a class="link-neon" href="#introduction">Introduction</a></li>
-                  <li><a class="link-neon" href="#experience">Experience</a></li>
-                  <li><a class="link-neon" href="#works">Previous Works</a></li>
-                  <li><a class="link-neon" href="#clients">Clients</a></li>
-                  <li><a class="link-neon" href="#style">Style</a></li>
-                  <li><a class="link-neon" href="#contact">Contact Me</a></li>
-                </ul>
-              </div>
-
-              <div class="col-md-3">
-                <p class="kicker mb-2">Contact</p>
-                <p class="mb-1">
-                  <a class="link-neon" href="mailto:hello@yourmail.com">hello@yourmail.com</a>
-                </p>
-                <p class="text-muted mb-0">Madrid · Remote</p>
-              </div>
-            </div>
-
-            <hr class="my-4" style="opacity: 0.12" />
-            <p class="text-muted m-0">
-              © <span id="year"></span> Sofía · Built with Bootstrap, Tailwind and GSAP.
-            </p>
-          </div>
-        </div>
-      </footer>
     </main>
 
     <!-- Bootstrap JS -->
