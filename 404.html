@@ -19,42 +19,55 @@
       rel="stylesheet"
     />
 
-    <!-- Custom -->
+    <!-- Your CSS -->
     <link rel="stylesheet" href="./assets/css/index.css" />
+
+    <!-- Metadata -->
     <meta name="theme-color" content="#39FF14" />
+    <meta
+      name="description"
+      content="404 page — the requested page could not be found."
+    />
   </head>
 
-  <body class="min-vh-100 d-flex align-items-center">
+  <body class="min-vh-100 d-flex align-items-center" style="background: var(--bg);">
     <main class="container py-5">
-      <div class="card border-0 shadow-sm card-neon mx-auto" style="max-width: 720px;">
+      <div
+        class="card border-0 card-neon mx-auto"
+        style="max-width: 720px;"
+      >
         <div class="card-body p-4 p-md-5 text-center">
-          <p class="kicker mb-2">404</p>
-          <h1 class="mb-3" style="font-size: var(--step-3);">Page not found</h1>
+          <p class="kicker mb-2" style="letter-spacing: 0.12em;">404</p>
+
+          <h1 class="mb-3" style="font-size: var(--step-3); font-family: var(--font-heading);">
+            Page not found
+          </h1>
+
           <p class="text-muted mb-4">
-            This URL doesn’t exist (or it moved). Use the button below to return to the homepage.
+            This URL doesn’t exist (or it moved). Use the button below to return
+            to the homepage.
           </p>
-          <a class="btn btn-primary btn-lg magnetic-btn" href="./index.html">Back home</a>
+
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a class="btn btn-neon btn-lg magnetic-btn" href="./index.html">
+              Back home
+            </a>
+
+            <a class="btn btn-outline-light btn-lg magnetic-btn" href="./index.html#contact">
+              Contact
+            </a>
+          </div>
+
+          <hr class="my-4" style="opacity: 0.12;" />
+
+          <p class="text-muted m-0" style="font-size: 0.95rem;">
+            Tip: if you pasted a deep link, try going back to the home page and
+            navigating from there.
+          </p>
         </div>
       </div>
     </main>
 
-    <!-- Optional: if you want magnetic on 404 too -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script>
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (!prefersReducedMotion) {
-        document.querySelectorAll(".magnetic-btn").forEach((btn) => {
-          btn.addEventListener("mousemove", (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            gsap.to(btn, { x: x * 0.25, y: y * 0.25, duration: 0.25, ease: "power2.out" });
-          });
-          btn.addEventListener("mouseleave", () => {
-            gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.35)" });
-          });
-        });
-      }
-    </script>
+    <!-- No JS needed here (clean + no dependencies) -->
   </body>
 </html>
