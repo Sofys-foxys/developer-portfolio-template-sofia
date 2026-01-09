@@ -84,14 +84,18 @@ portfolio-template/
 
 
 
-**ImagekitIO**
+🖼 Image Management — ImageKit
+
+This template uses ImageKit as a CDN to manage all images efficiently and in a centralized way.
+
+How images work
 
 All images are defined in one single file:
 
 assets/js/images.js
 
 
-Example:
+Example configuration:
 
 const IMAGEKIT_URL = "https://ik.imagekit.io/your_imagekit_id";
 
@@ -103,10 +107,15 @@ window.PORTFOLIO_IMAGES = {
 };
 
 
-HTML files never contain real image URLs.
-JavaScript safely injects src and alt attributes at runtime.
+Important principles:
 
-Folder structure in ImageKit (recommended)
+HTML files never contain real image URLs
+
+JavaScript safely injects src and alt attributes at runtime
+
+This keeps markup clean and makes the template easier to reuse
+
+Recommended ImageKit folder structure
 portfolio/
 ├── hero.jpg
 ├── work-1.jpg
@@ -121,7 +130,7 @@ portfolio/
 
 
 You do not need to upload all images.
-Placeholders are supported.
+Placeholders are fully supported.
 
 Changing or adding images
 
@@ -141,9 +150,9 @@ Clients	16:9
 Contact	4:3 or 1:1
 Footer	Square (1:1)
 
-ImageKit automatically optimizes size and format.
+ImageKit automatically optimizes image format, size, and quality.
 
-**ColorSystem**
+🎨 Color System
 
 This template uses CSS Custom Properties (design tokens) for consistent theming.
 
@@ -160,31 +169,34 @@ assets/css/index.css
   --neon-2: #2edb10;
 }
 
-**Dark & Light Mode **
+Dark & Light Mode
+
 Dark and light themes share the same token names
 
 Light mode overrides are scoped using:
 
-[data-theme="light"] { ... }
+[data-theme="light"] {
+  /* overrides here */
+}
 
 
-This ensures:
+This approach ensures:
 
 No duplicated styles
 
 Easy theme expansion
 
-Clean architecture
+Clean and maintainable architecture
 
-Accessibility
+Accessibility (Colors)
 
 Body text contrast meets WCAG AA
 
-Neon color is used for accent only, not long text
+Neon color is used only for accents
 
 Muted text is never used for critical information
 
-**Typography System**
+✍️ Typography System
 
 The typography system is fluid, responsive, and scalable.
 
@@ -196,11 +208,11 @@ Bowlby One SC → Accent headings
 
 Inter → Body text
 
-No more than 3 font families, following best practices.
+The template uses a maximum of three font families, following best practices.
 
 Fluid typography with clamp()
 
-Defined in CSS variables:
+Defined using CSS variables:
 
 --step-0: clamp(1rem, 2.5vw, 1.125rem);
 --step-1: clamp(1.25rem, 3vw, 1.5rem);
@@ -215,22 +227,22 @@ Smooth scaling across breakpoints
 
 No media-query typography hacks
 
-Works from mobile to large screens
+Works seamlessly from mobile to large screens
 
-**Heading System**
+Heading hierarchy
 
-One <h1> (hero)
+One <h1> → Hero section
 
-Section titles use <h2>
+Section titles → <h2>
 
-Card titles use <h3>
+Card titles → <h3>
 
-This ensures semantic clarity and accessibility.
+This ensures semantic clarity, accessibility, and proper document structure.
 
-**Cards System**
-How cards are structured
+🧱 Card System
+Base card structure
 
-Cards use a consistent pattern:
+Cards follow a consistent, reusable pattern:
 
 <div class="card card-neon">
   <h3>Title</h3>
@@ -261,9 +273,9 @@ Duplicate one column block:
 </div>
 
 
-Add a new image entry in images.js
+Add a new image entry in assets/js/images.js
 
-Update the ID (workImage4, etc.)
+Update the image ID (workImage4, etc.)
 
 Done
 
@@ -271,10 +283,20 @@ The layout automatically adapts using Bootstrap Grid.
 
 Adding cards to other sections
 
-Experience / Style:
+Experience / Style
 Duplicate .style-card or .card-neon
 
-Clients:
+Clients
 Duplicate .client-tile
 
-No JavaScript changes required.
+No JavaScript changes are required.
+
+📌 About This Template
+
+This project is designed as:
+
+A starter portfolio template
+
+A canvas for experimentation
+
+A base for future projects and extensions
