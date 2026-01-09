@@ -13,21 +13,33 @@ function setYear() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Theme toggle (dark/light) */
+/* Theme toggle (dark/light) + label update */
 /* -------------------------------------------------------------------------- */
 function initThemeToggle() {
   const root = document.documentElement;
   const btn = document.getElementById("themeToggle");
 
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+
+    // label should indicate action: if current is dark -> "Light mode"
+    if (btn) {
+      btn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+      btn.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      );
+    }
+  }
+
   const saved = localStorage.getItem("theme");
-  if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  applyTheme(saved === "light" ? "light" : "dark");
 
   if (!btn) return;
-
   btn.addEventListener("click", () => {
-    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
+    const current = root.getAttribute("data-theme") || "dark";
+    applyTheme(current === "dark" ? "light" : "dark");
   });
 }
 
@@ -51,8 +63,8 @@ function initContactForm() {
       return;
     }
 
-    // Template behavior (no network). You’ll connect real backend later if you want.
-    status.textContent = "Message ready to send (demo). Replace with your real submission flow.";
+    status.textContent =
+      "Message ready to send (demo). Replace with your real submission flow.";
     form.reset();
   });
 }
@@ -61,25 +73,26 @@ function initContactForm() {
 /* GSAP */
 /* -------------------------------------------------------------------------- */
 function initTypewriter() {
+  const el = document.querySelector(".typewriter");
+
   if (prefersReducedMotion) {
-    const el = document.querySelector(".typewriter");
     if (el) el.textContent = "Design is how it works.";
     return;
   }
 
-  const text = "Design is how it works.";
-  const container = document.querySelector(".typewriter");
-  if (!container) return;
+  if (!window.gsap || !el) return;
 
-  gsap.to(container, {
+  const text = "Design is how it works.";
+
+  gsap.to(el, {
     duration: text.length * 0.05,
     text: { value: text, delimiter: "" },
-    ease: "none"
+    ease: "none",
   });
 }
 
 function initScrollReveals() {
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !window.gsap) return;
 
   gsap.utils.toArray(".gsap-reveal").forEach((el) => {
     gsap.from(el, {
@@ -90,49 +103,53 @@ function initScrollReveals() {
       scrollTrigger: {
         trigger: el,
         start: "top 85%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none reverse",
+      },
     });
   });
 }
 
+/* Titles animation */
 function initSectionTitleScroll() {
-	if (prefersReducedMotion) return;
-  
-	gsap.utils.toArray(".section-title").forEach((t) => {
-	  gsap.from(t, {
-		y: 100,
-		opacity: 0,
-		duration: 1,
-		scrollTrigger: {
-		  trigger: t,
-		  start: "top 80%",
-		  end: "top 20%",
-		  toggleActions: "play none none reverse"
-		}
-	  });
-	});
-  }
-  
-  function initScrollTextReveal() {
-	if (prefersReducedMotion) return;
-  
-	gsap.utils.toArray(".scroll-text").forEach((text) => {
-	  gsap.from(text, {
-		y: 50,
-		opacity: 0,
-		duration: 1,
-		scrollTrigger: {
-		  trigger: text,
-		  start: "top 85%",
-		  toggleActions: "play none none reverse"
-		}
-	  });
-	});
-  }
-  
+  if (prefersReducedMotion || !window.gsap) return;
+
+  gsap.utils.toArray(".section-title").forEach((t) => {
+    gsap.from(t, {
+      y: 60,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: t,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+}
+
+/* Paragraph reveal */
+function initScrollTextReveal() {
+  if (prefersReducedMotion || !window.gsap) return;
+
+  gsap.utils.toArray(".scroll-text").forEach((text) => {
+    gsap.from(text, {
+      y: 24,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: text,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+}
+
+/* Hero parallax background */
 function initHeroParallax() {
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !window.gsap) return;
 
   gsap.to(".hero-bg", {
     y: -120,
@@ -141,13 +158,48 @@ function initHeroParallax() {
       trigger: "#introduction",
       start: "top top",
       end: "bottom top",
-      scrub: true
-    }
+      scrub: true,
+    },
+  });
+}
+
+/* Hero replay when scrolling up/down */
+function initHeroReplay() {
+  if (prefersReducedMotion || !window.gsap) return;
+
+  function playHero() {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ".hero-kicker",
+      { y: 16, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
+    )
+      .fromTo(
+        ".hero-title",
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+        "-=0.2"
+      )
+      .fromTo(
+        ".hero-cta",
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
+        "-=0.2"
+      );
+    return tl;
+  }
+
+  ScrollTrigger.create({
+    trigger: "#introduction",
+    start: "top 70%",
+    end: "bottom top",
+    onEnter: () => playHero(),
+    onEnterBack: () => playHero(),
   });
 }
 
 function initPinnedStyleSection() {
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !window.gsap) return;
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -155,8 +207,8 @@ function initPinnedStyleSection() {
       start: "top top",
       end: "+=180%",
       pin: true,
-      scrub: 1
-    }
+      scrub: 1,
+    },
   });
 
   tl.from(".reveal-1", { opacity: 0, y: 40, duration: 0.6 })
@@ -165,7 +217,7 @@ function initPinnedStyleSection() {
 }
 
 function initMagneticButtons() {
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !window.gsap) return;
 
   const buttons = gsap.utils.toArray(".magnetic-btn");
   buttons.forEach((btn) => {
@@ -178,7 +230,7 @@ function initMagneticButtons() {
         x: x * 0.25,
         y: y * 0.25,
         duration: 0.25,
-        ease: "power2.out"
+        ease: "power2.out",
       });
     });
 
@@ -187,14 +239,14 @@ function initMagneticButtons() {
         x: 0,
         y: 0,
         duration: 0.5,
-        ease: "elastic.out(1, 0.35)"
+        ease: "elastic.out(1, 0.35)",
       });
     });
   });
 }
 
 /* -------------------------------------------------------------------------- */
-/* Motion accessibility: global fallback */
+/* Motion accessibility: global helper */
 /* -------------------------------------------------------------------------- */
 function initReducedMotionCSSHelper() {
   if (!prefersReducedMotion) return;
@@ -205,20 +257,23 @@ function initReducedMotionCSSHelper() {
 /* Init */
 /* -------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
   setYear();
   initThemeToggle();
   initContactForm();
   initReducedMotionCSSHelper();
 
   initTypewriter();
+  initHeroReplay();
   initScrollReveals();
   initHeroParallax();
   initPinnedStyleSection();
   initMagneticButtons();
-
   initSectionTitleScroll();
   initScrollTextReveal();
-
 
   // Bootstrap scrollspy refresh (safe)
   if (window.bootstrap?.ScrollSpy) {

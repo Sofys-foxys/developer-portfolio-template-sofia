@@ -1,7 +1,6 @@
 /* --------------------------------------------------------------------------
-/* --------------------------------------------------------------------------
    THEME TOKENS — neon/dark + muted day mode
-   Palette reference 
+   Palette reference:
    #1A1C1B, #2A2E2E, #555D58, #95FF77, #59FF00
    Accent/H1: #39FF14
 -------------------------------------------------------------------------- */
@@ -34,8 +33,12 @@
 	--bg: #1a1c1b;
 	--bg-2: #2a2e2e;
 	--surface: #222726;
-	--text: #f5f7f6;
-	--muted: #aeb6b2;
+  
+	/* Higher contrast text for readability */
+	--text: rgba(255, 255, 255, 0.92);
+	--muted: rgba(255, 255, 255, 0.72);
+	--muted-2: rgba(255, 255, 255, 0.58);
+  
 	--border: rgba(255, 255, 255, 0.12);
   
 	/* Bootstrap-compatible hints */
@@ -50,8 +53,11 @@
 	--bg: #ffffff;
 	--bg-2: #f5f7f6;
 	--surface: #ffffff;
+  
 	--text: #121514;
-	--muted: #3f4744;
+	--muted: rgba(18, 21, 20, 0.75);
+	--muted-2: rgba(18, 21, 20, 0.62);
+  
 	--border: rgba(18, 21, 20, 0.12);
   
 	/* Reduce neon presence in light mode */
@@ -62,6 +68,4 @@
 	--bs-body-bg: var(--bg);
 	--bs-body-color: var(--text);
   }
-  
-
   
