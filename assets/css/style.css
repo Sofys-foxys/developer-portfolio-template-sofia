@@ -465,3 +465,10 @@ html[data-theme="light"] #mainNav {
   background: rgba(255, 255, 255, 0.03);
   object-fit: cover;
 }
+
+/* Fix: make pinned Style feel stable on desktop (prevents “collapse” feeling) */
+@media (min-width: 992px) {
+	#style .section-content {
+	  min-height: 55vh;
+	}
+  }

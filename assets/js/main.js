@@ -15,77 +15,73 @@ const prefersReducedMotion = window.matchMedia(
   }
   
   /* -------------------------------------------------------------------------- */
-  /* Commit 21/22 — Apply ImageKit map (safe attribute assignment + transforms) */
+  /* Commit 21/22 — Apply ImageKit map (safe attribute assignment) */
   /* -------------------------------------------------------------------------- */
   function applyImageMap() {
 	const map = window.PORTFOLIO_IMAGES;
 	if (!map) return;
   
-	// Helper: append ImageKit transforms safely
-	const withTr = (url, tr) => {
-	  if (!url) return "";
-	  const join = url.includes("?") ? "&" : "?";
-	  return `${url}${join}tr=${tr}`;
+	const refreshAfterLoad = (img) => {
+	  if (!img) return;
+	  // When images load, ScrollTrigger may need a refresh (layout changes)
+	  img.addEventListener(
+		"load",
+		() => {
+		  if (window.ScrollTrigger) {
+			// tiny delay to avoid multiple sync refreshes
+			requestAnimationFrame(() => ScrollTrigger.refresh());
+		  }
+		},
+		{ once: true }
+	  );
 	};
   
-	// HERO (portrait)
+	// HERO
 	const heroImg = document.getElementById("heroImage");
 	if (heroImg && map.hero?.src) {
-	  heroImg.src = withTr(map.hero.src, "f-auto,q-auto,w-900");
+	  heroImg.src = map.hero.src;
 	  heroImg.alt = map.hero.alt || "Hero image";
+	  refreshAfterLoad(heroImg);
 	}
   
-	// WORKS (3) 4:3 images
+	// WORKS (3)
 	const works = Array.isArray(map.works) ? map.works : [];
-	const workIds = ["workImage1", "workImage2", "workImage3"];
-  
-	workIds.forEach((id, index) => {
+	["workImage1", "workImage2", "workImage3"].forEach((id, index) => {
 	  const img = document.getElementById(id);
 	  const item = works[index];
 	  if (img && item?.src) {
-		img.src = withTr(item.src, "f-auto,q-auto,w-800");
+		img.src = item.src;
 		img.alt = item.alt || `Project preview image ${index + 1}`;
+		refreshAfterLoad(img);
 	  }
 	});
   
-	// STYLE (3) 16:9 previews
-	const styles = Array.isArray(map.style) ? map.style : [];
-	const styleIds = ["styleImage1", "styleImage2", "styleImage3"];
-  
-	styleIds.forEach((id, index) => {
-	  const img = document.getElementById(id);
-	  const item = styles[index];
-	  if (img && item?.src) {
-		img.src = withTr(item.src, "f-auto,q-auto,w-1200");
-		img.alt = item.alt || `Style preview image ${index + 1}`;
-	  }
-	});
-  
-	// CLIENTS (3) banners
+	// CLIENTS (3)
 	const clients = Array.isArray(map.clients) ? map.clients : [];
-	const clientIds = ["clientImage1", "clientImage2", "clientImage3"];
-  
-	clientIds.forEach((id, index) => {
+	["clientImage1", "clientImage2", "clientImage3"].forEach((id, index) => {
 	  const img = document.getElementById(id);
 	  const item = clients[index];
 	  if (img && item?.src) {
-		img.src = withTr(item.src, "f-auto,q-auto,w-1200");
+		img.src = item.src;
 		img.alt = item.alt || `Client banner image ${index + 1}`;
+		refreshAfterLoad(img);
 	  }
 	});
   
 	// CONTACT (1)
 	const contactImg = document.getElementById("contactImage");
 	if (contactImg && map.contact?.src) {
-	  contactImg.src = withTr(map.contact.src, "f-auto,q-auto,w-1200");
+	  contactImg.src = map.contact.src;
 	  contactImg.alt = map.contact.alt || "Contact section image";
+	  refreshAfterLoad(contactImg);
 	}
   
-	// FOOTER (1) small avatar/mark
+	// FOOTER (1)
 	const footerImg = document.getElementById("footerImage");
 	if (footerImg && map.footer?.src) {
-	  footerImg.src = withTr(map.footer.src, "f-auto,q-auto,w-160");
+	  footerImg.src = map.footer.src;
 	  footerImg.alt = map.footer.alt || "Footer mark image";
+	  refreshAfterLoad(footerImg);
 	}
   }
   
@@ -100,7 +96,6 @@ const prefersReducedMotion = window.matchMedia(
 	  root.setAttribute("data-theme", theme);
 	  localStorage.setItem("theme", theme);
   
-	  // label indicates action: if current is dark -> "Light mode"
 	  if (btn) {
 		btn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
 		btn.setAttribute(
@@ -147,6 +142,14 @@ const prefersReducedMotion = window.matchMedia(
   }
   
   /* -------------------------------------------------------------------------- */
+  /* Motion accessibility: global helper */
+  /* -------------------------------------------------------------------------- */
+  function initReducedMotionCSSHelper() {
+	if (!prefersReducedMotion) return;
+	document.documentElement.classList.add("reduced-motion");
+  }
+  
+  /* -------------------------------------------------------------------------- */
   /* GSAP */
   /* -------------------------------------------------------------------------- */
   function initTypewriter() {
@@ -186,7 +189,6 @@ const prefersReducedMotion = window.matchMedia(
 	});
   }
   
-  /* Titles animation */
   function initSectionTitleScroll() {
 	if (prefersReducedMotion || !window.gsap) return;
   
@@ -205,7 +207,6 @@ const prefersReducedMotion = window.matchMedia(
 	});
   }
   
-  /* Paragraph reveal */
   function initScrollTextReveal() {
 	if (prefersReducedMotion || !window.gsap) return;
   
@@ -224,7 +225,6 @@ const prefersReducedMotion = window.matchMedia(
 	});
   }
   
-  /* Hero parallax background */
   function initHeroParallax() {
 	if (prefersReducedMotion || !window.gsap) return;
   
@@ -240,9 +240,8 @@ const prefersReducedMotion = window.matchMedia(
 	});
   }
   
-  /* Hero replay when scrolling up/down */
   function initHeroReplay() {
-	if (prefersReducedMotion || !window.gsap || !window.ScrollTrigger) return;
+	if (prefersReducedMotion || !window.gsap) return;
   
 	function playHero() {
 	  const tl = gsap.timeline();
@@ -275,23 +274,30 @@ const prefersReducedMotion = window.matchMedia(
 	});
   }
   
-  /* Style pin timeline */
+  /* -------------------------------------------------------------------------- */
+  /* Fix “collapse” / flow interruption in #style pin
+	 - Only pin on desktop
+	 - End length is proportional to content height
+	 - anticipatePin + invalidateOnRefresh prevents jumps
+	 - pinSpacing keeps next section from overlapping
+  -------------------------------------------------------------------------- */
   function initPinnedStyleSection() {
 	if (prefersReducedMotion || !window.gsap || !window.ScrollTrigger) return;
   
 	const style = document.querySelector("#style");
 	if (!style) return;
   
-	// no pin on mobile/tablet
+	// Desktop only
 	if (window.matchMedia("(max-width: 991px)").matches) return;
   
 	const cards = style.querySelectorAll(".style-card");
-	const hasEnoughContent = cards.length >= 2;
-	if (!hasEnoughContent) return;
+	if (!cards || cards.length < 2) return;
   
 	const content = style.querySelector(".section-content");
 	const contentHeight = content ? content.scrollHeight : 600;
-	const extra = Math.min(900, Math.max(400, Math.round(contentHeight * 0.8)));
+  
+	// Dynamic pin distance: not too short (jump) and not too long (dead space)
+	const extra = Math.min(900, Math.max(520, Math.round(contentHeight * 0.9)));
   
 	const tl = gsap.timeline({
 	  scrollTrigger: {
@@ -299,15 +305,16 @@ const prefersReducedMotion = window.matchMedia(
 		start: "top top",
 		end: () => `+=${extra}`,
 		pin: true,
-		scrub: 1,
+		pinSpacing: true,
+		scrub: 0.8,
 		anticipatePin: 1,
 		invalidateOnRefresh: true,
 	  },
 	});
   
-	tl.from(".reveal-1", { opacity: 0, y: 30, duration: 0.5 })
-	  .from(".reveal-2", { opacity: 0, y: 30, duration: 0.5 })
-	  .from(".reveal-3", { opacity: 0, y: 30, duration: 0.5 });
+	tl.from(".reveal-1", { opacity: 0, y: 30, duration: 0.45, ease: "power2.out" })
+	  .from(".reveal-2", { opacity: 0, y: 30, duration: 0.45, ease: "power2.out" })
+	  .from(".reveal-3", { opacity: 0, y: 30, duration: 0.45, ease: "power2.out" });
   }
   
   function initMagneticButtons() {
@@ -340,14 +347,6 @@ const prefersReducedMotion = window.matchMedia(
   }
   
   /* -------------------------------------------------------------------------- */
-  /* Motion accessibility: global helper */
-  /* -------------------------------------------------------------------------- */
-  function initReducedMotionCSSHelper() {
-	if (!prefersReducedMotion) return;
-	document.documentElement.classList.add("reduced-motion");
-  }
-  
-  /* -------------------------------------------------------------------------- */
   /* Init */
   /* -------------------------------------------------------------------------- */
   document.addEventListener("DOMContentLoaded", () => {
@@ -356,7 +355,8 @@ const prefersReducedMotion = window.matchMedia(
 	}
   
 	setYear();
-	applyImageMap();
+	applyImageMap(); // <- ImageKit mapping
+  
 	initThemeToggle();
 	initContactForm();
 	initReducedMotionCSSHelper();
@@ -373,6 +373,11 @@ const prefersReducedMotion = window.matchMedia(
 	// Bootstrap scrollspy refresh (safe)
 	if (window.bootstrap?.ScrollSpy) {
 	  bootstrap.ScrollSpy.getOrCreateInstance(document.body);
+	}
+  
+	// One extra refresh after layout settles (helps pinned sections)
+	if (window.ScrollTrigger) {
+	  requestAnimationFrame(() => ScrollTrigger.refresh());
 	}
   });
   
