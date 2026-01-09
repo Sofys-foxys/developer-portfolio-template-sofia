@@ -42,6 +42,20 @@ window.PORTFOLIO_IMAGES = {
       alt: "Style image: accessibility-first interface example",
     },
   ],
+  clients: [
+    { src: ik("/portfolio/clients/client-1.jpg"), alt: "Client banner: Client One brand preview" },
+    { src: ik("/portfolio/clients/client-2.jpg"), alt: "Client banner: Client Two motion preview" },
+    { src: ik("/portfolio/clients/client-3.jpg"), alt: "Client banner: Client Three systems preview" },
+  ],
+  contact: {
+    src: ik("/portfolio/contact.jpg"),
+    alt: "Contact section image: abstract neon card background",
+  },
+  footer: {
+    src: ik("/portfolio/footer.jpg"),
+    alt: "Footer mark image: Sofía logo or portrait",
+  },
+  
 
 };
 

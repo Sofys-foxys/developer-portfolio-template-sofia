@@ -50,6 +50,32 @@ function applyImageMap() {
 		img.alt = item.alt || `Style preview image ${index + 1}`;
 	  }
 	});
+    // CLIENTS (3)
+	const clients = Array.isArray(map.clients) ? map.clients : [];
+	const clientIds = ["clientImage1", "clientImage2", "clientImage3"];
+  
+	clientIds.forEach((id, index) => {
+	  const img = document.getElementById(id);
+	  const item = clients[index];
+	  if (img && item?.src) {
+		img.src = item.src;
+		img.alt = item.alt || `Client banner image ${index + 1}`;
+	  }
+	});
+  
+	// CONTACT (1)
+	const contactImg = document.getElementById("contactImage");
+	if (contactImg && map.contact?.src) {
+	  contactImg.src = map.contact.src;
+	  contactImg.alt = map.contact.alt || "Contact section image";
+	}
+  
+	// FOOTER (1)
+	const footerImg = document.getElementById("footerImage");
+	if (footerImg && map.footer?.src) {
+	  footerImg.src = map.footer.src;
+	  footerImg.alt = map.footer.alt || "Footer mark image";
+	}
   
 }
 
