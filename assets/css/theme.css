@@ -1,17 +1,60 @@
 /* --------------------------------------------------------------------------
-   Tokenize design system
-   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   THEME TOKENS — neon/dark + muted day mode
+   Palette reference 
+   #1A1C1B, #2A2E2E, #555D58, #95FF77, #59FF00
+   Accent/H1: #39FF14
+-------------------------------------------------------------------------- */
 
 :root {
-	--bs-body-bg: #0f0f0f;
-	--bs-body-color: #f5f5f5;
-	--bs-primary: #6366f1;
-	--bs-primary-rgb: 99, 102, 241;
-
-	/* Custom tokens */
-	--color-bg-alt: #1a1a1a;
-	--color-muted: #6c757d;
+	/* Typography (fluid) */
+	--font-display: "Bowlby One SC", system-ui, sans-serif;
+	--font-heading: "Bebas Neue", system-ui, sans-serif;
+	--font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  
+	--step--1: clamp(0.92rem, 0.88rem + 0.2vw, 1.02rem);
+	--step-0: clamp(1rem, 0.96rem + 0.3vw, 1.12rem);
+	--step-1: clamp(1.25rem, 1.05rem + 1.1vw, 1.7rem);
+	--step-2: clamp(1.6rem, 1.2rem + 2vw, 2.4rem);
+	--step-3: clamp(2.2rem, 1.5rem + 3.2vw, 3.6rem);
+	--step-4: clamp(2.8rem, 1.8rem + 4.5vw, 5rem);
+  
+	--radius-lg: 1rem;
+	--radius-xl: 1.25rem;
+  
 	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-
-}
+	--ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+	/* Accent */
+	--neon: #39ff14;
+	--neon-2: #59ff00;
+	--neon-soft: #95ff77;
+  
+	/* Default: dark */
+	--bg: #1a1c1b;
+	--bg-2: #2a2e2e;
+	--surface: #222726;
+	--text: #f5f7f6;
+	--muted: #aeb6b2;
+	--border: rgba(255, 255, 255, 0.12);
+  
+	/* Bootstrap-compatible hints */
+	--bs-body-bg: var(--bg);
+	--bs-body-color: var(--text);
+	--bs-primary: var(--neon-2);
+	--bs-primary-rgb: 89, 255, 0;
+  }
+  
+  [data-theme="light"] {
+	/* “Day mode”: muted dark typography on white */
+	--bg: #ffffff;
+	--bg-2: #f5f7f6;
+	--surface: #ffffff;
+	--text: #121514;
+	--muted: #3f4744;
+	--border: rgba(18, 21, 20, 0.12);
+  
+	--bs-body-bg: var(--bg);
+	--bs-body-color: var(--text);
+  }
+  
