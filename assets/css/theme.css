@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------
    THEME TOKENS — neon/dark + muted day mode
-   Palette reference:
+   Palette reference
    #1A1C1B, #2A2E2E, #555D58, #95FF77, #59FF00
    Accent/H1: #39FF14
 -------------------------------------------------------------------------- */
@@ -24,7 +24,7 @@
 	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 	--ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
   
-	/* Accent */
+	/* Accent (dark) */
 	--neon: #39ff14;
 	--neon-2: #59ff00;
 	--neon-soft: #95ff77;
@@ -34,12 +34,12 @@
 	--bg-2: #2a2e2e;
 	--surface: #222726;
   
-	/* Higher contrast text for readability */
+	/* Make outside text readable */
 	--text: rgba(255, 255, 255, 0.92);
-	--muted: rgba(255, 255, 255, 0.72);
-	--muted-2: rgba(255, 255, 255, 0.58);
+	--muted: rgba(255, 255, 255, 0.76);
+	--muted-2: rgba(255, 255, 255, 0.62);
   
-	--border: rgba(255, 255, 255, 0.12);
+	--border: rgba(255, 255, 255, 0.14);
   
 	/* Bootstrap-compatible hints */
 	--bs-body-bg: var(--bg);
@@ -49,21 +49,21 @@
   }
   
   [data-theme="light"] {
-	/* “Day mode”: muted dark typography on white */
+	/* “Day mode”: higher contrast, still muted but readable */
 	--bg: #ffffff;
-	--bg-2: #f5f7f6;
+	--bg-2: #f4f6f5;
 	--surface: #ffffff;
   
-	--text: #121514;
-	--muted: rgba(18, 21, 20, 0.75);
-	--muted-2: rgba(18, 21, 20, 0.62);
+	--text: #0f1412;
+	--muted: rgba(15, 20, 18, 0.78);
+	--muted-2: rgba(15, 20, 18, 0.62);
   
-	--border: rgba(18, 21, 20, 0.12);
+	--border: rgba(15, 20, 18, 0.14);
   
-	/* Reduce neon presence in light mode */
-	--neon: #121514;
-	--neon-2: #121514;
-	--neon-soft: #3f4744;
+	/* Light mode accent = darker green (visible on white) */
+	--neon: #1ea100;     /* darker green */
+	--neon-2: #167a00;   /* even darker for hover */
+	--neon-soft: rgba(22, 122, 0, 0.65);
   
 	--bs-body-bg: var(--bg);
 	--bs-body-color: var(--text);
