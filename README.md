@@ -32,7 +32,7 @@ It emphasizes:
 - ✍️ Typewriter hero text
 - 🖼 ImageKit CDN integration for optimized images
 - ♿ Accessibility foundations (reduced motion, alt text, keyboard navigation)
-- 🔗 Custom 404 page
+- 🔗 Cuom 404 page
 - 📦 No build tools required (pure CDN setup)
 
 ---
@@ -59,6 +59,34 @@ It emphasizes:
 
 All dependencies are loaded via CDN.  
 No Node.js, no bundlers, no build step.
+
+## 🤖 AI Usage Policy
+
+
+This project was developed with the assistance of an AI agent following a two-phase workflow:
+
+Phase 1 — Planning
+Before implementation, the AI was used to:
+Propose architecture decisions
+Plan animations and interactions
+Structure documentation
+All planning steps are documented in:
+- docs/plan1.md
+- docs/plan2.md
+- docs/plan3.md
+
+Phase 2 — Implementation
+
+Only after reviewing and documenting the plans, code was written or refined.
+All AI-assisted changes were committed transparently with descriptive messages.
+
+## 🚀 Future Improvements
+
+- Multi-page navigation
+- Expandable project cards (modal / detail view)
+- - Improved Style section flow
+- Additional icons and micro-interactions
+- Increased contrast in light mode
 
 
 ## 🖼 Image Management — ImageKit
