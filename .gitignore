@@ -1,20 +1,49 @@
-# Node
+# =========================
+# Node / Package managers
+# =========================
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# OS
+# =========================
+# OS files
+# =========================
 .DS_Store
 Thumbs.db
 
-# Editors
+# =========================
+# Editors / IDEs
+# =========================
 .vscode/
 .idea/
 
-# Misc
+# =========================
+# Logs
+# =========================
 *.log
 
-# (Intentionally NOT ignoring built CSS output for GH Pages)
+# =========================
+# Build / cache (optional)
+# =========================
+.dist/
+.cache/
+.tmp/
+
+# =========================
+# Environment files
+# =========================
+.env
+.env.local
+.env.*.local
+
+# =========================
+# Notes
+# =========================
+# We intentionally DO NOT ignore built CSS files
+# because this project is deployed via GitHub Pages
+# and uses CDN-based tooling (no build step).
+#
+# Example:
 # assets/css/tailwind.output.css
