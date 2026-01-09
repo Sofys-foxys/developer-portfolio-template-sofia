@@ -28,4 +28,20 @@ window.PORTFOLIO_IMAGES = {
       alt: "Project preview image: Work 3",
     },
   ],
+  style: [
+    {
+      src: ik("/portfolio/style-1.jpg"),
+      alt: "Style image: design tokens and UI system reference",
+    },
+    {
+      src: ik("/portfolio/style-2.jpg"),
+      alt: "Style image: motion and animation concept preview",
+    },
+    {
+      src: ik("/portfolio/style-3.jpg"),
+      alt: "Style image: accessibility-first interface example",
+    },
+  ],
+
 };
+

@@ -38,6 +38,19 @@ function applyImageMap() {
       img.alt = item.alt || `Project preview image ${index + 1}`;
     }
   });
+    // STYLE (3)
+	const style = Array.isArray(map.style) ? map.style : [];
+	const styleIds = ["styleImage1", "styleImage2", "styleImage3"];
+  
+	styleIds.forEach((id, index) => {
+	  const img = document.getElementById(id);
+	  const item = style[index];
+	  if (img && item?.src) {
+		img.src = item.src;
+		img.alt = item.alt || `Style preview image ${index + 1}`;
+	  }
+	});
+  
 }
 
 /* -------------------------------------------------------------------------- */
