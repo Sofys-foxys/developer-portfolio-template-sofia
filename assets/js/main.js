@@ -78,16 +78,6 @@ function applyImageMap() {
 	}
   
 }
-function initImageKitBindings() {
-	if (!window.PORTFOLIO_IMAGES) return;
-  
-	const heroImg = document.getElementById("heroImage");
-	if (heroImg && PORTFOLIO_IMAGES.hero) {
-	  heroImg.src = `${PORTFOLIO_IMAGES.hero.src}?tr=f-auto,q-auto,w-900`;
-	  heroImg.alt = PORTFOLIO_IMAGES.hero.alt;
-	}
-  }
-
 
 /* -------------------------------------------------------------------------- */
 /* Theme toggle (dark/light) + label update */
@@ -368,7 +358,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMagneticButtons();
   initSectionTitleScroll();
   initScrollTextReveal();
-  initImageKitBindings();
 
   if (window.bootstrap?.ScrollSpy) {
     bootstrap.ScrollSpy.getOrCreateInstance(document.body);
