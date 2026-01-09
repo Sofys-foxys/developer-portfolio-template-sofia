@@ -2,31 +2,22 @@
    11. Responsive Adjustments
    -------------------------------------------------------------------------- */
    @media (max-width: 991.98px) {
-	.hero-title {
-		font-size: 3rem;
+	.hero-section {
+	  padding-top: 6rem;
 	}
-
-	.shape {
-		transform: scale(0.6);
+  
+	h1, .hero-title {
+	  line-height: 0.98;
 	}
-}
-
-@media (max-width: 575.98px) {
-	.hero-title {
-		font-size: 2.5rem;
+  }
+  
+  @media (max-width: 575.98px) {
+	.section-pad {
+	  padding: 3.5rem 0;
 	}
-
-	.hero-cta .btn {
-		display: block;
-		width: 100%;
-		margin-bottom: 1rem;
+  
+	.nav-glass .navbar-brand {
+	  letter-spacing: 0.04em;
 	}
-
-	.hero-cta .btn:last-child {
-		margin-bottom: 0;
-	}
-
-	.about-image::before {
-		display: none;
-	}
-}
+  }
+  
