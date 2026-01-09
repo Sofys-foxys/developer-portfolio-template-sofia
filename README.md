@@ -83,8 +83,10 @@ portfolio-template/
 │   │   └── images.js  # Centralized image map (ImageKit)
 
 
+---
 
-🖼 Image Management — ImageKit
+## 🖼 Image Management — ImageKit
+
 
 This template uses ImageKit as a CDN to manage all images efficiently and in a centralized way.
 
@@ -151,6 +153,7 @@ Contact	4:3 or 1:1
 Footer	Square (1:1)
 
 ImageKit automatically optimizes image format, size, and quality.
+---
 
 🎨 Color System
 
