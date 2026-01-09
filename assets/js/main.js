@@ -202,13 +202,15 @@ function initPinnedStyleSection() {
   if (prefersReducedMotion || !window.gsap) return;
 
   const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#style",
-      start: "top top",
-      end: "+=180%",
-      pin: true,
-      scrub: 1,
-    },
+	scrollTrigger: {
+	  trigger: "#style",
+	  start: "top top",
+	  end: "+=110%",          
+	  pin: true,
+	  scrub: 1,
+	  anticipatePin: 1,
+	  invalidateOnRefresh: true
+	}
   });
 
   tl.from(".reveal-1", { opacity: 0, y: 40, duration: 0.6 })
