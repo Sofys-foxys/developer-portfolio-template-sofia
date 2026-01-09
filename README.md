@@ -81,8 +81,6 @@ portfolio-template/
 │   ├── js/
 │   │   ├── main.js     # Animations, interactions
 │   │   └── images.js  # Centralized image map (ImageKit)
-
-
 ---
 
 ## 🖼 Image Management — ImageKit
@@ -155,7 +153,7 @@ Footer	Square (1:1)
 ImageKit automatically optimizes image format, size, and quality.
 ---
 
-🎨 Color System
+## Color System
 
 This template uses CSS Custom Properties (design tokens) for consistent theming.
 
@@ -241,9 +239,9 @@ Section titles → <h2>
 Card titles → <h3>
 
 This ensures semantic clarity, accessibility, and proper document structure.
+---
 
-🧱 Card System
-Base card structure
+## Card System
 
 Cards follow a consistent, reusable pattern:
 
@@ -293,9 +291,9 @@ Clients
 Duplicate .client-tile
 
 No JavaScript changes are required.
+---
 
-📌 About This Template
-
+## About this Template
 This project is designed as:
 
 A starter portfolio template
